@@ -26,12 +26,13 @@ namespace Client.Updaters
             _cameraPos = playerPos + Quaternion.Euler(0, yOfView, 0) * _gameSettings.CameraPosition;
 
             _camera.transform.position = Vector3.Lerp(_camera.transform.position, _cameraPos,
-                Time.deltaTime * 25f);
+                Time.deltaTime * 100f);
             
             _camera.transform.LookAt(_camera.transform.position 
                                      - Quaternion.Euler(0, yOfView, 0) * _gameSettings.CameraPosition 
                                      + Vector3.up * 1.1f);
-            Debug.DrawLine(_camera.transform.position, playerPos + Vector3.up * 1.1f, Color.cyan);
+            
+            /*Debug.DrawLine(_camera.transform.position, playerPos + Vector3.up * 1.1f, Color.cyan);*/
         }
     }
 }

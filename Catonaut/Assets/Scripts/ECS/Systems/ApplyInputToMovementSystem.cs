@@ -29,7 +29,6 @@ public class ApplyInputToMovementSystem : SystemBase
             if (input.Movement.magnitude >= 0.1f)
             {
                 transform.Position += _gameSettings.MaxSpeed * new Vector3(input.Movement.x, 0f, input.Movement.y) / TickRate;
-
             }
                 
             body.transform.position = transform.Position;
