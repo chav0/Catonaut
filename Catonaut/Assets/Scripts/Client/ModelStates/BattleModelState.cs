@@ -1,4 +1,6 @@
-﻿using Client.Scene;
+﻿using System.Collections.Generic;
+using Client.Model;
+using Client.Scene;
 using ECS;
 using UnityEngine;
 
@@ -10,13 +12,16 @@ namespace Client.ModelStates
         private World _world;
         private float _startTime;
         private UnityScene _scene;
+        private Input _input;
         
-        public int TickRate { get; protected set; } = 40;
-        
+        public override int TickRate { get; protected set; } = 40;
+        public override World World => _world;
+        public override ModelStatus Status => ModelStatus.Battle; 
+
         public override void OnEnter()
         {
             _scene = Context.Scene;
-            _gameLogic = new GameLogic(new SystemFactory(_scene), Context.Settings, _scene);
+            _gameLogic = new GameLogic(new SystemFactory(_scene, Context.Settings), Context.Settings, _scene);
             _world = _gameLogic.CreateNewWorld(TickRate);
             _gameLogic.Init(_world, TickRate);
             _startTime = Time.realtimeSinceStartup;
@@ -34,8 +39,14 @@ namespace Client.ModelStates
             
             while (_world.Tick < currentTick)
             {
-                //_gameLogic.Simulate(_inputBufferList);
+                _gameLogic.Simulate(_input);
+                _input = null; 
             }
+        }
+
+        public override void AddGameInput(Input input)
+        {
+            _input = input;
         }
     }
 }

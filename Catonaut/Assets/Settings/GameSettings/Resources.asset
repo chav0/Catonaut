@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerObject: {fileID: 2345445521516548499, guid: ba98f26d2eb36a34eb6b0dd32a812a0f,
     type: 3}
+  MapObject: {fileID: 5982522878612181704, guid: daa46d983396c58438b38d4d6d2fbec0,
+    type: 3}

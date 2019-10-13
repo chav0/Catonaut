@@ -10,7 +10,8 @@ namespace Client
         public GameSettings Settings;
         public Resources Resources;
 
-        private Presenter _presenter; 
+        private Presenter _presenter;
+        private bool _init; 
         
         public void Awake()
         {

@@ -1,6 +1,6 @@
 ﻿namespace ECS
 {
-    public class IComponent 
+    public interface IComponent 
     {
 
     }

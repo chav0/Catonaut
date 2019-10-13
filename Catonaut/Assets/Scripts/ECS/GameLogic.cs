@@ -32,13 +32,14 @@ namespace ECS
             }
         }
         
-        public void Simulate(IReadOnlyList<Input> inputs)
+        public void Simulate(Input input)
         {
-            /*var inputCount = Mathf.Min(inputs.Count, _inputTable.Count);
-            for (int i = 0; i < inputCount; i++)
+            _world.ClientEntity.Input = input;
+
+            if (input != null)
             {
-                _inputTable.SetAt(i, inputs[i]);
-            }*/
+                
+            }
             
             _world.Tick++;
             for (int i = 0, count = _systems.Length; i < count; i++)
@@ -51,18 +52,28 @@ namespace ECS
         {
             var world = new World();
 
+            var map = _scene.CreateMap(); 
+            
             for (int i = 0; i < PlayerCount; i++)
             {
-                var player = world.CreateEntity();
-                player.AddPlayer(); 
+                var playerEntity = world.CreateEntity();
+                
+                var player = playerEntity.AddPlayer();
+                
+                var transform = playerEntity.AddTransform();
+                transform.Position = map.SpawnZones[i].position;
+                transform.Rotation = map.SpawnZones[i].eulerAngles;
+
+                playerEntity.AddInput(); 
 
                 if (i == 0)
                 {
-                    _world.ClientEntity = player; 
+                    world.ClientEntity = playerEntity; 
                 }
                 
                 var body = _scene.CreatePlayer();
-                body.SetEntity(player);
+                body.SetEntity(playerEntity);
+                player.PlayerObject = body; 
             }
 
             return world; 

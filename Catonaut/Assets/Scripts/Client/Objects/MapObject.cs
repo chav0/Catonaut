@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
+using Transform = ECS.Components.Transform;
 
 namespace Client.Objects
 {
     public class MapObject : MonoBehaviour
     {
-        public GameObject FirstSpawnZone;
-        public GameObject SecondSpawnZone; 
+        public UnityEngine.Transform[] SpawnZones;
     }
 }

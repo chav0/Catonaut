@@ -1,5 +1,6 @@
 ﻿using Client.ModelStates;
 using Client.Scene;
+using ECS;
 using UnityEngine;
 
 namespace Client.Model
@@ -11,13 +12,15 @@ namespace Client.Model
         private readonly Resources Resources; 
         
         public BaseModelState CurrentState { get; set; }
+        public ModelStatus Status => CurrentState.Status; 
+        public World World => CurrentState.World;
         
         public ClientModel(GameSettings gameSettings, UnityScene scene, Resources resources)
         {
             Settings = gameSettings;
             Scene = scene;
             Resources = resources; 
-            CurrentState = new BattleModelState();
+            CurrentState = new InitModelState();
             CurrentState.Context = this; 
             CurrentState.OnEnter();
         }
@@ -26,5 +29,21 @@ namespace Client.Model
         {
             CurrentState.Update(currentTime);
         }
+
+        public void FindMatch()
+        {
+            CurrentState.SetState(new BattleModelState());
+        }
+
+        public void AddGameInput(Input input)
+        {
+            CurrentState.AddGameInput(input);
+        }
+    }
+
+    public enum ModelStatus
+    {
+        Init,
+        Battle,
     }
 }

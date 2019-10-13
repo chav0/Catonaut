@@ -19,7 +19,7 @@ namespace Client.ViewStates
         public abstract void PreModelUpdate();
         public abstract void PostModelUpdate();
         
-        protected void SetState(BaseViewState newState)
+        public void SetState(BaseViewState newState)
         {
             OnExit();
             newState.Context = Context;

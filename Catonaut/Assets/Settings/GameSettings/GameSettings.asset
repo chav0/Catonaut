@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4655937c04866e949af6a7c69bedd43a, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
-  CameraPosition: {x: 0, y: 0, z: 0}
+  CameraPosition: {x: 2.85, y: 3.74, z: 0}
   CameraRotation: {x: 0, y: 0, z: 0}
-  MaxSpeed: 0
-  MinSpeed: 0
-  RotationSpeed: 0
+  MaxSpeed: 2
+  MinSpeed: 0.2
+  RotationSpeed: 3

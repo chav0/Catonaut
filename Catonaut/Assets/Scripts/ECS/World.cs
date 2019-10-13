@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using Client.Objects;
 using ECS.Components;
 
 namespace ECS
 {
     public sealed class World : IDisposable
     {
-        private Dictionary<uint, Entity> _entities;
+        private readonly Dictionary<uint, Entity> _entities;
         private uint _lastId = 0; 
         
         public int Tick;
@@ -38,5 +39,7 @@ namespace ECS
         }
 
         public Table<Player> Players = new Table<Player>();
+        public Table<Transform> Transrofms = new Table<Transform>();
+        public Table<Input> Input = new Table<Input>();
     }
 }

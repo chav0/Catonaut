@@ -15,7 +15,7 @@ namespace Client
             var unityScene = new UnityScene(resources); 
             
             _model = new ClientModel(gameSettings, unityScene, resources);
-            _view = new ClientView(resources, _view, unityScene, screens, camera);
+            _view = new ClientView(resources, _model, unityScene, screens, camera);
         }
 
         public void Update()
