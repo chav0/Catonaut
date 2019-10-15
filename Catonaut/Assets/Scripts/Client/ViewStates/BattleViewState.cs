@@ -7,6 +7,7 @@ namespace Client.ViewStates
     {
         private CameraUpdater _cameraUpdater;
         private PlayerUpdater _playerUpdater;
+        private Vector2 _viewYAngle;
 
         public override void OnEnter()
         {
@@ -16,24 +17,34 @@ namespace Client.ViewStates
         
         public override void PreModelUpdate()
         {
-            bool hasStick = false; 
-            var moveStick = FillVectorByKeys(new Vector2(), ref hasStick);
+            var hud = Context.Screens.BattleHud;
+            
+            bool hasStick = hud.LeftStickWidget.Pressed; 
+            
+            hud.LeftStickWidget.UpdateMoving(out var moveStick, out var speed);
+            hud.RightStickWidget.UpdateRotation(out var rotation);
+            
+            _viewYAngle = rotation * Screen.dpi / Context.AppModel.Settings.CameraRotationSpeed;
+            
+            moveStick = FillVectorByKeys(moveStick, ref hasStick);
 
             moveStick.Normalize();
 			
             moveStick = GetRelativeMovementVector(moveStick);
             
+
             var input = new Input();
             input.Movement = moveStick;
+            input.Speed = speed;
             Context.AppModel.AddGameInput(input); 
         }
 
         public override void PostModelUpdate()
         {
             _playerUpdater.Update(Context.AppModel.World);
-            _cameraUpdater.Update(Context.AppModel.World, 90f);
+            _cameraUpdater.Update(Context.AppModel.World, _viewYAngle);
         }
-        
+             
         private static Vector2 FillVectorByKeys(Vector2 moveStick, ref bool hasStick)
         {
             bool firstKey = false;
@@ -88,7 +99,7 @@ namespace Client.ViewStates
 
             return moveStick;
         }
-
+        
         private Vector2 GetRelativeMovementVector(Vector2 movement)
         {
             var battleCameraTransform = Context.Camera.transform;

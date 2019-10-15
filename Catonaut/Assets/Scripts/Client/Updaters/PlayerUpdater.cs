@@ -11,11 +11,11 @@ namespace Client.Updaters
             {
                 var entity = world.Players.EntityAt(i);
                 var body = entity.Player.PlayerObject; 
-                var transform = entity.Transform;
+                var input = entity.Input;
 
-                if (body != null && transform != null)
+                if (body != null && input != null)
                 {
-                    body.SetAnimations(transform.Speed);
+                    body.SetAnimations(input.Speed);
                 }
             }
         }

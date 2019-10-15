@@ -62,7 +62,7 @@ namespace ECS
                 
                 var transform = playerEntity.AddTransform();
                 transform.Position = map.SpawnZones[i].position;
-                transform.Rotation = map.SpawnZones[i].eulerAngles;
+                transform.Rotation = map.SpawnZones[i].rotation;
 
                 playerEntity.AddInput(); 
 

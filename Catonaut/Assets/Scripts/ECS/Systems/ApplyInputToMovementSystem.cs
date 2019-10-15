@@ -25,16 +25,22 @@ public class ApplyInputToMovementSystem : SystemBase
 
             if (input == null || transform == null || body == null) 
                 continue;
+
+            var direction = new Vector3(input.Movement.x, 0f, input.Movement.y); 
+            var deltaMove = input.Speed * _gameSettings.MaxSpeed * direction / TickRate; 
             
-            if (input.Movement.magnitude >= 0.1f)
+            if (input.Speed >= 0.1f)
             {
-                transform.Position += _gameSettings.MaxSpeed * new Vector3(input.Movement.x, 0f, input.Movement.y) / TickRate;
+                body.transform.position = body.Rigidbody.position;
+                body.CharacterController.Move(deltaMove);
+                
+                transform.Position = body.transform.position;
+                transform.Rotation = Quaternion.Lerp(Quaternion.LookRotation(direction, 
+                    Vector3.up), transform.Rotation, _gameSettings.CameraRotationLerp);
             }
                 
             body.transform.position = transform.Position;
-            body.transform.eulerAngles = transform.Rotation; 
-
-            transform.Speed = input.Movement.magnitude * _gameSettings.MaxSpeed;
+            body.transform.rotation = transform.Rotation; 
         }
     }
 }
