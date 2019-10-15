@@ -26,7 +26,7 @@ namespace Client.ViewStates
             
             _viewYAngle = rotation * Screen.dpi / Context.AppModel.Settings.CameraRotationSpeed;
             
-            moveStick = FillVectorByKeys(moveStick, ref hasStick);
+            moveStick = FillVectorByKeys(moveStick, ref speed, ref hasStick);
 
             moveStick.Normalize();
 			
@@ -45,7 +45,7 @@ namespace Client.ViewStates
             _cameraUpdater.Update(Context.AppModel.World, _viewYAngle);
         }
              
-        private static Vector2 FillVectorByKeys(Vector2 moveStick, ref bool hasStick)
+        private static Vector2 FillVectorByKeys(Vector2 moveStick, ref float speed, ref bool hasStick)
         {
             bool firstKey = false;
 
@@ -59,6 +59,7 @@ namespace Client.ViewStates
 
                 hasStick = true;
                 moveStick += Vector2.left;
+                speed = 1f; 
             }
 
             if (UnityEngine.Input.GetKey("d"))
@@ -71,6 +72,7 @@ namespace Client.ViewStates
 
                 hasStick = true;
                 moveStick += Vector2.right;
+                speed = 1f; 
             }
 
             if (UnityEngine.Input.GetKey("w"))
@@ -83,6 +85,7 @@ namespace Client.ViewStates
 
                 hasStick = true;
                 moveStick += Vector2.up;
+                speed = 1f; 
             }
 
             if (UnityEngine.Input.GetKey("s"))
@@ -95,6 +98,7 @@ namespace Client.ViewStates
 
                 hasStick = true;
                 moveStick += Vector2.down;
+                speed = 1f; 
             }
 
             return moveStick;
