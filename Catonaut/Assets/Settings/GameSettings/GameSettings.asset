@@ -12,12 +12,88 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4655937c04866e949af6a7c69bedd43a, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
-  CameraOffset: {x: 12.29, y: 5.38, z: 0}
+  CameraOffset: {x: 6.96, y: 6.86, z: -7}
   CameraMaxAngle: 3.54
   CameraMinAngle: -1.07
   CameraVerticalRotationSpeed: 0.1
   CameraLerp: 100
   CameraRotationLerp: 0.9
   CameraRotationSpeed: 500
+  maxYOffset: 0.889
+  maxIntensity: 80
+  maxRange: 26
+  FlashlightRange:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0013157895
+      value: 0.16603774
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  FlashlighIntensity:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.01
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  FlashlightYOffset:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.3
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  FlashlightLerp: 0.99
   MaxSpeed: 5
   RotationSpeed: 3

@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace ECS
 {
-    public class Table<T> where T : IComponent
+    public class Table<T> : IDisposable where T : IComponent
     {
         private readonly List<T>  _components = new List<T>();
         private readonly List<Entity> _entities = new List<Entity>();
@@ -40,7 +41,7 @@ namespace ECS
             }
         }
 
-        public void Clear()
+        public void Dispose()
         {
             _components.Clear();
             _entities.Clear();

@@ -43,7 +43,8 @@ namespace ECS
 
         public Player Player;
         public Transform Transform;
-        public Input Input; 
+        public Input Input;
+        public Flashlight Flashlight; 
 
         public Player AddPlayer()
         {
@@ -67,6 +68,14 @@ namespace ECS
             Input = input; 
             _world.Input.CreateAt(this, input);
             return input; 
+        }
+        
+        public Flashlight AddFlashlight()
+        {
+            var flashlight = new Flashlight();
+            Flashlight = flashlight; 
+            _world.Flashlights.CreateAt(this, flashlight);
+            return flashlight; 
         }
     }
 }

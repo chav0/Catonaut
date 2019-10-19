@@ -7,7 +7,7 @@ namespace Client
     [CreateAssetMenu(fileName = "GameSettings", menuName = "Settings/GameSettings")]
     public class GameSettings : ScriptableObject
     {
-        [FormerlySerializedAs("CameraPosition")] [Header("Camera Settings")] 
+        [Header("Camera Settings")] 
         public Vector3 CameraOffset;
         public float CameraMaxAngle;
         public float CameraMinAngle;
@@ -15,6 +15,15 @@ namespace Client
         public float CameraLerp;
         public float CameraRotationLerp;
         public float CameraRotationSpeed;
+
+        [Header("Flashlight")] 
+        public float maxYOffset;
+        public float maxIntensity;
+        public float maxRange;
+        public AnimationCurve FlashlightRange;
+        public AnimationCurve FlashlighIntensity;
+        public AnimationCurve FlashlightYOffset;
+        public float FlashlightLerp; 
 
         [Header("Movement")] 
         public float MaxSpeed;

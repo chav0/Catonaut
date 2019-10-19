@@ -64,11 +64,13 @@ namespace ECS
                 transform.Position = map.SpawnZones[i].position;
                 transform.Rotation = map.SpawnZones[i].rotation;
 
-                playerEntity.AddInput(); 
+
+                playerEntity.AddFlashlight(); 
 
                 if (i == 0)
                 {
                     world.ClientEntity = playerEntity; 
+                    playerEntity.AddInput(); 
                 }
                 
                 var body = _scene.CreatePlayer();

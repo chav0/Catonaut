@@ -1,46 +1,46 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Client;
-using ECS;
+﻿using Client;
 using UnityEngine;
 
-public class ApplyInputToMovementSystem : SystemBase
+namespace ECS.Systems
 {
-    private readonly GameSettings _gameSettings; 
-    
-    public ApplyInputToMovementSystem(GameSettings settings)
+    public class ApplyInputToMovementSystem : SystemBase
     {
-        _gameSettings = settings;
-    }
+        private readonly GameSettings _gameSettings; 
     
-    public override void Simulate()
-    {
-        for (int i = 0; i < World.Input.Count; i++)
+        public ApplyInputToMovementSystem(GameSettings settings)
         {
-            var entity = World.Input.EntityAt(i);
-
-            var input = entity.Input;
-            var body = entity.Player.PlayerObject; 
-            var transform = entity.Transform;
-
-            if (input == null || transform == null || body == null) 
-                continue;
-
-            var direction = new Vector3(input.Movement.x, 0f, input.Movement.y); 
-            var deltaMove = input.Speed * _gameSettings.MaxSpeed * direction / TickRate; 
-            
-            if (input.Speed >= 0.1f)
+            _gameSettings = settings;
+        }
+    
+        public override void Simulate()
+        {
+            for (int i = 0; i < World.Input.Count; i++)
             {
-                body.transform.position = body.Rigidbody.position;
-                body.CharacterController.Move(deltaMove);
+                var entity = World.Input.EntityAt(i);
+
+                var input = entity.Input;
+                var body = entity.Player.PlayerObject; 
+                var transform = entity.Transform;
+
+                if (input == null || transform == null || body == null) 
+                    continue;
+
+                var direction = new Vector3(input.Movement.x, 0f, input.Movement.y); 
+                var deltaMove = input.Speed * _gameSettings.MaxSpeed * direction / TickRate; 
+            
+                if (input.Speed >= 0.1f)
+                {
+                    body.transform.position = body.Rigidbody.position;
+                    body.CharacterController.Move(deltaMove);
                 
-                transform.Position = body.transform.position;
-                transform.Rotation = Quaternion.Lerp(Quaternion.LookRotation(direction, 
-                    Vector3.up), transform.Rotation, _gameSettings.CameraRotationLerp);
+                    transform.Position = body.transform.position;
+                    transform.Rotation = Quaternion.Lerp(Quaternion.LookRotation(direction, 
+                        Vector3.up), transform.Rotation, _gameSettings.CameraRotationLerp);
+                }
+                
+                body.transform.position = transform.Position;
+                body.transform.rotation = transform.Rotation; 
             }
-                
-            body.transform.position = transform.Position;
-            body.transform.rotation = transform.Rotation; 
         }
     }
 }

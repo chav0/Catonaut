@@ -36,10 +36,15 @@ namespace ECS
 
         public void Dispose()
         {
+            Players.Dispose();
+            Transrofms.Dispose(); 
+            Input.Dispose();
+            Flashlights.Dispose();
         }
 
         public Table<Player> Players = new Table<Player>();
         public Table<Transform> Transrofms = new Table<Transform>();
         public Table<Input> Input = new Table<Input>();
+        public Table<Flashlight> Flashlights = new Table<Flashlight>();
     }
 }

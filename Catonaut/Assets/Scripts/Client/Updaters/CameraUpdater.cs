@@ -9,11 +9,13 @@ namespace Client.Updaters
         private readonly GameSettings _gameSettings;
         private Vector3 _cameraPos;
         private float _horizontalRotation; 
-        private float _verticalRotation; 
+        private float _verticalRotation;
+        private Quaternion _startRotation; 
 
         public CameraUpdater(Camera camera, GameSettings gameSettings)
         {
             _camera = camera;
+            _startRotation = _camera.transform.rotation; 
             _gameSettings = gameSettings; 
         }
 
@@ -31,14 +33,15 @@ namespace Client.Updaters
                 Mathf.Clamp(_verticalRotation, _gameSettings.CameraMinAngle, _gameSettings.CameraMaxAngle);  
 
             var playerPos = body.transform.position;
-            _cameraPos = playerPos + Quaternion.Euler(0, _horizontalRotation, 0) * _gameSettings.CameraOffset;
+            /*_cameraPos = playerPos + Quaternion.Euler(0, _horizontalRotation, 0) * _gameSettings.CameraOffset;*/
+            _cameraPos = playerPos + Quaternion.identity * _gameSettings.CameraOffset;
 
             _camera.transform.position = Vector3.Lerp(_camera.transform.position, _cameraPos,
                 Time.deltaTime * _gameSettings.CameraLerp);
 
-            _camera.transform.LookAt(_camera.transform.position 
-                                     - Quaternion.Euler(0, _horizontalRotation, 0) * _gameSettings.CameraOffset 
-                                     + Vector3.up * _verticalRotation);
+            _camera.transform.LookAt(_camera.transform.position - _gameSettings.CameraOffset); 
+            /*- Quaternion.Euler(0, _horizontalRotation, 0) * _gameSettings.CameraOffset 
+            + Vector3.down * _verticalRotation);*/
         }
     }
 }

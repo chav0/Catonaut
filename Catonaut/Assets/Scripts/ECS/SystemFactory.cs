@@ -1,5 +1,6 @@
 ﻿using Client;
 using Client.Scene;
+using ECS.Systems;
 
 namespace ECS
 {
@@ -19,6 +20,7 @@ namespace ECS
             return new SystemBase[]
             {
                 new ApplyInputToMovementSystem(_settings), 
+                new FlashlightSystem(_settings), 
             };
         }
     }
