@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Client.Objects;
+using ECS.Components;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -20,6 +21,7 @@ namespace Client.Scene
         {
             var res = Object.Instantiate(_resources.MapObject);
             _createdObjects.Add(res.gameObject);
+            MapGenerate(res); 
             return res;
         }
 
@@ -34,7 +36,48 @@ namespace Client.Scene
         {
             foreach (var go in _createdObjects)
             {
-                GameObject.Destroy(go);
+                Object.Destroy(go);
+            }
+        }
+
+        private void MapGenerate(MapObject map)
+        {
+            var keysColor = new List<KeyColor>()
+            {
+                KeyColor.Red,
+                KeyColor.Green,
+                KeyColor.Blue,
+            };
+
+            for (int i = 0; i < keysColor.Count; i++)
+            {
+                var keyColor = keysColor[i];
+                var probability = map.Capsule.Probability[i];
+                var rand = UnityEngine.Random.Range(0f, 1f);
+
+                if (rand > probability ||
+                    keysColor.Count - i <= map.Capsule.RequiredKeysCount - map.Capsule.RequiredKeys.Count)
+                {
+                    map.Capsule.RequiredKeys.Add(keyColor);
+                    Debug.Log(keyColor);
+                }
+
+                if (map.Capsule.RequiredKeys.Count == map.Capsule.RequiredKeysCount)
+                    break;
+            }
+
+            for (int i = keysColor.Count - 1; i >= 1; i--)
+            {
+                int j = UnityEngine.Random.Range(0, i + 1);
+                var temp = keysColor[j];
+                keysColor[j] = keysColor[i];
+                keysColor[i] = temp;
+            }
+
+            for (int i = 0; i < map.Keys.Length; i++)
+            {
+                var key = map.Keys[i];
+                key.KeyColor = keysColor[i];
             }
         }
     }

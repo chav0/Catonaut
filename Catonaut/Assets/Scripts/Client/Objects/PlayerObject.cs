@@ -4,7 +4,7 @@ using UnityEngine.Experimental.GlobalIllumination;
 
 namespace Client.Objects
 {
-    public class PlayerObject : MonoBehaviour
+    public class PlayerObject : EntityRefObject
     {
         public Animator Animator;
         public CharacterController CharacterController; 
@@ -24,11 +24,6 @@ namespace Client.Objects
             Flashlight.intensity = intensity; 
             Flashlight.transform.localPosition = new Vector3(0f, yOffset, 0f);
             Flashlight.range = range; 
-        }
-        
-        public void SetEntity(Entity player)
-        {
-            
         }
     }
 }

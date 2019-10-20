@@ -2,7 +2,7 @@
 
 namespace ECS.Components
 {
-    public class Flashlight : IComponent
+    public class Flashlight : Component
     {
         public float Intensity;
         public float YOffset;

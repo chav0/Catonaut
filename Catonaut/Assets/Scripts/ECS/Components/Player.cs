@@ -2,7 +2,7 @@
 
 namespace ECS.Components
 {
-    public class Player : IComponent
+    public class Player : Component
     {
         public PlayerObject PlayerObject; 
     }

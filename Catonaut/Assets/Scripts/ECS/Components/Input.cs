@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using ECS;
 using UnityEngine;
+using Component = ECS.Component;
 
-public class Input : IComponent
+public class Input : Component
 {
     public float Direction;
     public Vector2 Movement;

@@ -28,5 +28,9 @@ namespace Client
         [Header("Movement")] 
         public float MaxSpeed;
         public float RotationSpeed;
+
+        [Header("Mode Settings")] 
+        public float KeyRadius; 
+        public float CapsuleRadius; 
     }
 }

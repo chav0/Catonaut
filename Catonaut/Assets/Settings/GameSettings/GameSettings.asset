@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4655937c04866e949af6a7c69bedd43a, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
-  CameraOffset: {x: 6.96, y: 6.86, z: -7}
+  CameraOffset: {x: 139.2, y: 137.2, z: -140}
   CameraMaxAngle: 3.54
   CameraMinAngle: -1.07
   CameraVerticalRotationSpeed: 0.1
@@ -26,8 +26,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.0013157895
-      value: 0.16603774
+      time: 0.20158415
+      value: 0.50237197
       inSlope: 2
       outSlope: 2
       tangentMode: 0
@@ -50,8 +50,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 0.01
+      time: 0.101314545
+      value: 0.20613648
       inSlope: 2
       outSlope: 2
       tangentMode: 0
@@ -94,6 +94,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  FlashlightLerp: 0.99
-  MaxSpeed: 5
+  FlashlightLerp: 0.98
+  MaxSpeed: 12
   RotationSpeed: 3
+  KeyRadius: 1
+  CapsuleRadius: 3

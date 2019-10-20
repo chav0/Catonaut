@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Client;
+using Client.Objects;
 using Client.Scene;
 using UnityEngine;
 
@@ -64,8 +65,8 @@ namespace ECS
                 transform.Position = map.SpawnZones[i].position;
                 transform.Rotation = map.SpawnZones[i].rotation;
 
-
-                playerEntity.AddFlashlight(); 
+                playerEntity.AddFlashlight();
+                playerEntity.AddInventory(); 
 
                 if (i == 0)
                 {
@@ -74,9 +75,26 @@ namespace ECS
                 }
                 
                 var body = _scene.CreatePlayer();
-                body.SetEntity(playerEntity);
+                body.Entity = playerEntity;
                 player.PlayerObject = body; 
             }
+
+            foreach (var keyBody in map.Keys)
+            {
+                var keyEntity = world.CreateEntity();
+                keyBody.Entity = keyEntity; 
+                var key = keyEntity.AddKey();
+                key.Body = keyBody;
+                key.KeyColor = keyBody.KeyColor;
+            }
+
+            var capsuleBody = map.Capsule;
+            var capsuleEntity = world.CreateEntity();
+            capsuleBody.Entity = capsuleEntity;
+            var capsule = capsuleEntity.AddCapsule();
+            capsuleEntity.AddInventory(); 
+            capsule.RequiredKeys.AddRange(capsuleBody.RequiredKeys);
+            capsule.Body = capsuleBody; 
 
             return world; 
         }

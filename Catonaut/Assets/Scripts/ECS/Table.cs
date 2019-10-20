@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ECS
 {
-    public class Table<T> : IDisposable where T : IComponent
+    public class Table<T> : IDisposable where T : Component
     {
         private readonly List<T>  _components = new List<T>();
         private readonly List<Entity> _entities = new List<Entity>();
@@ -25,6 +25,7 @@ namespace ECS
         
         public void CreateAt(Entity entity, T component)
         {
+            component.EntityId = entity.Id; 
             _components.Add(component); 
             _entities.Add(entity);
         }

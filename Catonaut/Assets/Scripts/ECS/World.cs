@@ -40,11 +40,17 @@ namespace ECS
             Transrofms.Dispose(); 
             Input.Dispose();
             Flashlights.Dispose();
+            Inventories.Dispose();
+            Capsules.Dispose();
         }
 
         public Table<Player> Players = new Table<Player>();
         public Table<Transform> Transrofms = new Table<Transform>();
         public Table<Input> Input = new Table<Input>();
         public Table<Flashlight> Flashlights = new Table<Flashlight>();
+        public Table<Inventory> Inventories = new Table<Inventory>();
+        public Table<Key> Keys = new Table<Key>();
+        public Table<Capsule> Capsules = new Table<Capsule>();
+        public Match Match = new Match();
     }
 }

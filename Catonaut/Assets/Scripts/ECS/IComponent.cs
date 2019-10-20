@@ -1,7 +1,7 @@
 ﻿namespace ECS
 {
-    public interface IComponent 
+    public class Component
     {
-
+        public uint EntityId; 
     }
 }

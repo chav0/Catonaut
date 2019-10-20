@@ -1,6 +1,7 @@
 ﻿using System;
 using Client.Objects;
 using ECS.Components;
+using JetBrains.Annotations;
 using UnityEngine;
 using Transform = ECS.Components.Transform;
 
@@ -44,7 +45,11 @@ namespace ECS
         public Player Player;
         public Transform Transform;
         public Input Input;
-        public Flashlight Flashlight; 
+        public Flashlight Flashlight;
+        public Inventory Inventory;
+
+        public Key Key;
+        public Capsule Capsule; 
 
         public Player AddPlayer()
         {
@@ -76,6 +81,30 @@ namespace ECS
             Flashlight = flashlight; 
             _world.Flashlights.CreateAt(this, flashlight);
             return flashlight; 
+        }
+        
+        public Inventory AddInventory()
+        {
+            var inventory = new Inventory();
+            Inventory = inventory; 
+            _world.Inventories.CreateAt(this, inventory);
+            return inventory; 
+        }
+        
+        public Key AddKey()
+        {
+            var key = new Key();
+            Key = key; 
+            _world.Keys.CreateAt(this, key);
+            return key; 
+        }
+        
+        public Capsule AddCapsule()
+        {
+            var capsule = new Capsule();
+            Capsule = capsule; 
+            _world.Capsules.CreateAt(this, capsule);
+            return capsule; 
         }
     }
 }
