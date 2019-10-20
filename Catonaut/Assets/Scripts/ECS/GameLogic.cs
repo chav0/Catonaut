@@ -53,7 +53,15 @@ namespace ECS
         {
             var world = new World();
 
-            var map = _scene.CreateMap(); 
+            var map = _scene.CreateMap();
+
+            foreach (var spawnZoneBody in map.SpawnZones)
+            {
+                var entity = world.CreateEntity();
+                var spawnPoint = entity.AddSpawnPoint();
+                spawnPoint.Position = spawnZoneBody.position;
+                spawnPoint.Rotation = spawnZoneBody.rotation;
+            }
             
             for (int i = 0; i < PlayerCount; i++)
             {
@@ -62,16 +70,20 @@ namespace ECS
                 var player = playerEntity.AddPlayer();
                 
                 var transform = playerEntity.AddTransform();
-                transform.Position = map.SpawnZones[i].position;
-                transform.Rotation = map.SpawnZones[i].rotation;
+                transform.Position = world.SpawnPoints[i].Position;
+                transform.Rotation = world.SpawnPoints[i].Rotation;
 
                 playerEntity.AddFlashlight();
-                playerEntity.AddInventory(); 
+                playerEntity.AddInventory();
+                playerEntity.AddInput(); 
+                
+                var health = playerEntity.AddHealth();
+                health.MaxHealth = _gameSettings.MaxPlayerHealth;
+                health.CurrentHealth = health.MaxHealth; 
 
                 if (i == 0)
                 {
                     world.ClientEntity = playerEntity; 
-                    playerEntity.AddInput(); 
                 }
                 
                 var body = _scene.CreatePlayer();

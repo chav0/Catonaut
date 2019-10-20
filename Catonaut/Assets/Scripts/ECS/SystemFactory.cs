@@ -23,6 +23,7 @@ namespace ECS
                 new FlashlightSystem(_settings), 
                 new KeysSystem(_settings),
                 new InsertingKeysInCapsuleSystem(_settings),
+                new DeathResolverSystem(),
             };
         }
     }

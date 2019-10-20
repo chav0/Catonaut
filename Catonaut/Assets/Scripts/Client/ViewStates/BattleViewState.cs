@@ -7,7 +7,6 @@ namespace Client.ViewStates
     {
         private CameraUpdater _cameraUpdater;
         private PlayerUpdater _playerUpdater;
-        private Vector2 _viewYAngle;
 
         public override void OnEnter()
         {
@@ -19,12 +18,10 @@ namespace Client.ViewStates
         {
             var hud = Context.Screens.BattleHud;
             
-            bool hasStick = hud.LeftStickWidget.Pressed; 
+            bool hasStick = hud.MovementStick.Pressed; 
             
-            hud.LeftStickWidget.UpdateMoving(out var moveStick, out var speed);
-            hud.RightStickWidget.UpdateRotation(out var rotation);
-            
-            _viewYAngle = rotation * Screen.dpi / Context.AppModel.Settings.CameraRotationSpeed;
+            hud.MovementStick.UpdateMoving(out var moveStick, out var speed);
+            hud.AttackStick.UpdateRotation(out var rotation);
             
             moveStick = FillVectorByKeys(moveStick, ref speed, ref hasStick);
 
@@ -32,17 +29,19 @@ namespace Client.ViewStates
 			
             moveStick = GetRelativeMovementVector(moveStick);
             
-
             var input = new Input();
             input.Movement = moveStick;
             input.Speed = speed;
+            input.Attack = hud.AttackStick.UpPressed.TryGet(); 
+            input.Aimed = hud.AttackStick.Pressed;
+            input.Direction = rotation; 
             Context.AppModel.AddGameInput(input); 
         }
 
         public override void PostModelUpdate()
         {
             _playerUpdater.Update(Context.AppModel.World);
-            _cameraUpdater.Update(Context.AppModel.World, _viewYAngle);
+            _cameraUpdater.Update(Context.AppModel.World);
         }
              
         private static Vector2 FillVectorByKeys(Vector2 moveStick, ref float speed, ref bool hasStick)

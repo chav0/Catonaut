@@ -31,6 +31,9 @@ namespace Client
 
         [Header("Mode Settings")] 
         public float KeyRadius; 
-        public float CapsuleRadius; 
+        public float CapsuleRadius;
+
+        [Header("Player Settings")] 
+        public int MaxPlayerHealth; 
     }
 }

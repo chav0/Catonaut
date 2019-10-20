@@ -51,6 +51,9 @@ namespace ECS
         public Table<Inventory> Inventories = new Table<Inventory>();
         public Table<Key> Keys = new Table<Key>();
         public Table<Capsule> Capsules = new Table<Capsule>();
+        public Table<Health> Health = new Table<Health>();
+        public Table<SpawnPoint> SpawnPoints = new Table<SpawnPoint>();
+        
         public Match Match = new Match();
     }
 }

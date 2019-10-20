@@ -47,9 +47,12 @@ namespace ECS
         public Input Input;
         public Flashlight Flashlight;
         public Inventory Inventory;
+        public Health Health; 
 
         public Key Key;
-        public Capsule Capsule; 
+        public Capsule Capsule;
+
+        public SpawnPoint SpawnPoint; 
 
         public Player AddPlayer()
         {
@@ -105,6 +108,22 @@ namespace ECS
             Capsule = capsule; 
             _world.Capsules.CreateAt(this, capsule);
             return capsule; 
+        }
+        
+        public Health AddHealth()
+        {
+            var health = new Health();
+            Health = health; 
+            _world.Health.CreateAt(this, health);
+            return health; 
+        }
+
+        public SpawnPoint AddSpawnPoint()
+        {
+            var spawnPoint = new SpawnPoint();
+            SpawnPoint = spawnPoint; 
+            _world.SpawnPoints.CreateAt(this, spawnPoint);
+            return spawnPoint; 
         }
     }
 }

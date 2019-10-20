@@ -6,7 +6,9 @@ using Component = ECS.Component;
 
 public class Input : Component
 {
-    public float Direction;
+    public Vector2 Direction;
     public Vector2 Movement;
-    public float Speed; 
+    public float Speed;
+    public bool Attack; 
+    public bool Aimed; 
 }

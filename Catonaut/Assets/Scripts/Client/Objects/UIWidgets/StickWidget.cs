@@ -9,27 +9,28 @@ namespace Client.Objects.UIWidgets
         public float MaxRadius; 
         public Vector2 StartPosition { get; private set; }
         public Vector2 CurrentPosition { get; private set; }
-        public bool Pressed { get; private set; }
-        public Vector2 LastDelta { get; private set; }
+        public UIMessage DownPressed { get; } = new UIMessage();
+        public UIMessage UpPressed { get; } = new UIMessage();
+
+        public bool Pressed { get; set; }
 		
         public void OnPointerDown(PointerEventData eventData)
         {
-            Pressed = true;
+            DownPressed.Set();
+            Pressed = true; 
             StartPosition = eventData.position;
             CurrentPosition = eventData.position;
-            LastDelta = Vector2.zero;
         }
 
         public void OnDrag(PointerEventData eventData)
         {
             CurrentPosition = eventData.position;
-            LastDelta = eventData.delta;
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
             CurrentPosition = eventData.position;
-            LastDelta = Vector2.zero;
+            UpPressed.Set();
             Pressed = false;
         }
         
@@ -47,14 +48,11 @@ namespace Client.Objects.UIWidgets
                 moving = Vector2.zero;
                 speed = 0f; 
             }
-            
-            LastDelta = Vector2.zero;
         }
         
         public void UpdateRotation(out Vector2 direction)
         {
-            direction = LastDelta; 
-            LastDelta = Vector2.zero;
+            direction = CurrentPosition - StartPosition; 
         }
     }
 }

@@ -25,18 +25,22 @@ namespace ECS.Systems
                 if (input == null || transform == null || body == null) 
                     continue;
 
-                var direction = new Vector3(input.Movement.x, 0f, input.Movement.y); 
+                var direction = new Vector3(input.Movement.x, 0f, input.Movement.y);
+                var aimedDirection = new Vector3(input.Direction.x, 0f, input.Direction.y); 
                 var deltaMove = input.Speed * _gameSettings.MaxSpeed * direction / TickRate; 
             
-                if (input.Speed >= 0.1f)
+                if (input.Speed >= 0.1f || input.Aimed)
                 {
-                    body.transform.position = body.Rigidbody.position;
+                    body.transform.position = transform.Position;
                     body.CharacterController.Move(deltaMove);
                 
                     transform.Position = body.transform.position;
-                    transform.Rotation = Quaternion.Lerp(Quaternion.LookRotation(direction, 
+
+                    transform.Rotation = Quaternion.Lerp(Quaternion.LookRotation(input.Aimed ? aimedDirection : direction,
                         Vector3.up), transform.Rotation, _gameSettings.CameraRotationLerp);
                 }
+                
+
                 
                 body.transform.position = transform.Position;
                 body.transform.rotation = transform.Rotation; 

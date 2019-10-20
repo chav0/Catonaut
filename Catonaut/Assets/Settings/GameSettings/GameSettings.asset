@@ -99,3 +99,4 @@ MonoBehaviour:
   RotationSpeed: 3
   KeyRadius: 1
   CapsuleRadius: 3
+  MaxPlayerHealth: 50
