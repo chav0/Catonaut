@@ -3,7 +3,12 @@ guid: dad73611eafc6488390f0bf8c91b9644
 ModelImporter:
   serializedVersion: 29
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BezierCurve.003_BezierCurve.000Mat
+    second: {fileID: 2100000, guid: 83a90721aa1d0b04f9858a9f764537f2, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
