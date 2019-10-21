@@ -13,6 +13,7 @@ namespace Client.Objects.UIWidgets
         public UIMessage UpPressed { get; } = new UIMessage();
 
         public bool Pressed { get; set; }
+        public bool Dragged { get; set; }
 		
         public void OnPointerDown(PointerEventData eventData)
         {
@@ -25,6 +26,7 @@ namespace Client.Objects.UIWidgets
         public void OnDrag(PointerEventData eventData)
         {
             CurrentPosition = eventData.position;
+            Dragged = true; 
         }
 
         public void OnPointerUp(PointerEventData eventData)
@@ -32,6 +34,7 @@ namespace Client.Objects.UIWidgets
             CurrentPosition = eventData.position;
             UpPressed.Set();
             Pressed = false;
+            Dragged = false; 
         }
         
         public void UpdateMoving(out Vector2 moving, out float speed)

@@ -38,7 +38,7 @@ namespace ECS.Systems
                         var projectile = projectileEntity.AddProjectile();
                         projectile.Owner = entity;
                         projectile.Position = entity.Transform.Position; 
-                        projectile.Direction = (Quaternion.Euler(dispersionVector) * direction).normalized;
+                        projectile.Direction = input.Direction.normalized;
                     }
                     
                     weapon.WeaponState = WeaponState.Cooldown;
