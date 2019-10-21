@@ -3,7 +3,12 @@ guid: 4f1a8006f28114ecbad4ebe2ed8bb26e
 ModelImporter:
   serializedVersion: 29
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pivot.003_Plane.236Mat
+    second: {fileID: 2100000, guid: 83a90721aa1d0b04f9858a9f764537f2, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

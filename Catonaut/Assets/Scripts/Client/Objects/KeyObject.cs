@@ -1,6 +1,7 @@
 ﻿using System;
 using ECS.Components;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 namespace Client.Objects
 {
@@ -25,12 +26,16 @@ namespace Client.Objects
                 {
                     case KeyColor.Red:
                         _meshRenderer.material.SetColor(ColorCached, _red);
+                        
+                            
                         break;
                     case KeyColor.Green:
                         _meshRenderer.material.SetColor(ColorCached, _green);
+                        
                         break;
                     case KeyColor.Blue:
                         _meshRenderer.material.SetColor(ColorCached, _blue);
+                        
                         break;
                 }
             }

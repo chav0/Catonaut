@@ -37,7 +37,7 @@ namespace ECS.Systems
                 
                     transform.Position = body.transform.position;
 
-                    transform.Rotation = Quaternion.Lerp(Quaternion.LookRotation(input.Aimed ? Quaternion.Euler(0f, -45f, 0f) * aimedDirection : direction,
+                    transform.Rotation = Quaternion.Lerp(Quaternion.LookRotation(input.Aimed ? Quaternion.Euler(0f, 225f, 0f) * aimedDirection : direction,
                         Vector3.up), transform.Rotation, _gameSettings.CameraRotationLerp);
                 }
                 
