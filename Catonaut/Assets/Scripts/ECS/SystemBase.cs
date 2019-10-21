@@ -7,8 +7,7 @@ namespace ECS
         protected World World;
         protected int TickRate;
 
-        public abstract void Simulate();
-        public virtual void Predict() {}
+        public abstract void Execute();
 
         public void Init(World world, int tickRate)
         {

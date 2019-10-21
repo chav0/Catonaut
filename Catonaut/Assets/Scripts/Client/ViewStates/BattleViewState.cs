@@ -34,6 +34,7 @@ namespace Client.ViewStates
             input.Speed = speed;
             input.Attack = hud.AttackStick.UpPressed.TryGet(); 
             input.Aimed = hud.AttackStick.Pressed;
+            input.Aim = hud.AttackStick.DownPressed.TryGet();
             input.Direction = rotation; 
             Context.AppModel.AddGameInput(input); 
         }

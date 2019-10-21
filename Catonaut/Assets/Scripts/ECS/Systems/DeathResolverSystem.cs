@@ -5,7 +5,7 @@ namespace ECS.Systems
 {
     public class DeathResolverSystem : SystemBase
     {
-        public override void Simulate()
+        public override void Execute()
         {
             for (int i = 0; i < World.Health.Count; i++)
             {

@@ -45,7 +45,7 @@ namespace ECS
             _world.Tick++;
             for (int i = 0, count = _systems.Length; i < count; i++)
             {
-                _systems[i].Simulate();
+                _systems[i].Execute();
             }
         }
 
@@ -79,7 +79,11 @@ namespace ECS
                 
                 var health = playerEntity.AddHealth();
                 health.MaxHealth = _gameSettings.MaxPlayerHealth;
-                health.CurrentHealth = health.MaxHealth; 
+                health.CurrentHealth = health.MaxHealth;
+
+                var weapon = playerEntity.AddWeapon();
+                weapon.ChargeTime = (int) _gameSettings.WeaponChargeTime * tickRate; 
+                weapon.CooldownTime = (int) _gameSettings.WeaponCooldownTime * tickRate; 
 
                 if (i == 0)
                 {

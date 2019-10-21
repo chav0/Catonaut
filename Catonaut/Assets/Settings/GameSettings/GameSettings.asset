@@ -95,8 +95,11 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   FlashlightLerp: 0.98
-  MaxSpeed: 12
+  MaxSpeed: 4
+  AimSpeedModificator: 0.5
   RotationSpeed: 3
   KeyRadius: 1
   CapsuleRadius: 3
   MaxPlayerHealth: 50
+  WeaponChargeTime: 0
+  WeaponCooldownTime: 0

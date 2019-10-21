@@ -12,7 +12,7 @@ namespace ECS.Systems
             _gameSettings = settings;
         }
     
-        public override void Simulate()
+        public override void Execute()
         {
             for (int i = 0; i < World.Input.Count; i++)
             {
@@ -26,8 +26,9 @@ namespace ECS.Systems
                     continue;
 
                 var direction = new Vector3(input.Movement.x, 0f, input.Movement.y);
-                var aimedDirection = new Vector3(input.Direction.x, 0f, input.Direction.y); 
-                var deltaMove = input.Speed * _gameSettings.MaxSpeed * direction / TickRate; 
+                var aimedDirection = new Vector3(input.Direction.x, 0f, input.Direction.y);
+                var modificator = input.Aimed ? _gameSettings.AimSpeedModificator : 1f; 
+                var deltaMove = modificator * input.Speed * _gameSettings.MaxSpeed * direction / TickRate; 
             
                 if (input.Speed >= 0.1f || input.Aimed)
                 {
@@ -36,14 +37,13 @@ namespace ECS.Systems
                 
                     transform.Position = body.transform.position;
 
-                    transform.Rotation = Quaternion.Lerp(Quaternion.LookRotation(input.Aimed ? aimedDirection : direction,
+                    transform.Rotation = Quaternion.Lerp(Quaternion.LookRotation(input.Aimed ? Quaternion.Euler(0f, -45f, 0f) * aimedDirection : direction,
                         Vector3.up), transform.Rotation, _gameSettings.CameraRotationLerp);
                 }
                 
-
-                
                 body.transform.position = transform.Position;
                 body.transform.rotation = transform.Rotation; 
+                body.SetLaser(input.Aimed);
             }
         }
     }

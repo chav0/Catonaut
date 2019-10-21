@@ -12,7 +12,7 @@ namespace ECS.Systems
             _gameSettings = settings;
         }
         
-        public override void Simulate()
+        public override void Execute()
         {
             for (int i = 0; i < World.Flashlights.Count; i++)
             {

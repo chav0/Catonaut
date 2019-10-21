@@ -10,5 +10,6 @@ public class Input : Component
     public Vector2 Movement;
     public float Speed;
     public bool Attack; 
+    public bool Aim; 
     public bool Aimed; 
 }

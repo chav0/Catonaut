@@ -10,6 +10,7 @@ namespace Client.Objects
         public CharacterController CharacterController; 
         public Rigidbody Rigidbody;
         public Light Flashlight;  
+        public GameObject Laser;  
         private static readonly int RightBlend = Animator.StringToHash("RightBlend");
         private static readonly int ForwardBlend = Animator.StringToHash("ForwardBlend");
         private static readonly int BlendSpeed = Animator.StringToHash("BlendSpeed");
@@ -24,6 +25,14 @@ namespace Client.Objects
             Flashlight.intensity = intensity; 
             Flashlight.transform.localPosition = new Vector3(0f, yOffset, 0f);
             Flashlight.range = range; 
+        }
+
+        public void SetLaser(bool active)
+        {
+            if (Laser.activeSelf != active)
+            {
+                Laser.SetActive(active);
+            }
         }
     }
 }

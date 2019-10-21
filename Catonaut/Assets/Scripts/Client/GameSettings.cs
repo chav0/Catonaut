@@ -27,6 +27,7 @@ namespace Client
 
         [Header("Movement")] 
         public float MaxSpeed;
+        public float AimSpeedModificator;
         public float RotationSpeed;
 
         [Header("Mode Settings")] 
@@ -34,6 +35,10 @@ namespace Client
         public float CapsuleRadius;
 
         [Header("Player Settings")] 
-        public int MaxPlayerHealth; 
+        public int MaxPlayerHealth;
+        
+        [Header("Weapon")] 
+        public float WeaponChargeTime;
+        public float WeaponCooldownTime; 
     }
 }

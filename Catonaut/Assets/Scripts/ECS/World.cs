@@ -33,6 +33,21 @@ namespace ECS
             _entities.Add(_lastId, newEntity);
             return newEntity; 
         }
+        
+        public void DestroyEntity(Entity entity)
+        {
+            _entities.Remove(entity.Id); 
+            Players.DeleteAt(entity);
+            Transrofms.DeleteAt(entity);
+            Input.DeleteAt(entity);
+            Flashlights.DeleteAt(entity);
+            Inventories.DeleteAt(entity);
+            Keys.DeleteAt(entity);
+            Capsules.DeleteAt(entity);
+            Health.DeleteAt(entity);
+            SpawnPoints.DeleteAt(entity);
+            Weapons.DeleteAt(entity);
+        }
 
         public void Dispose()
         {
@@ -42,6 +57,10 @@ namespace ECS
             Flashlights.Dispose();
             Inventories.Dispose();
             Capsules.Dispose();
+            Health.Dispose();
+            Keys.Dispose();
+            SpawnPoints.Dispose();
+            Weapons.Dispose();
         }
 
         public Table<Player> Players = new Table<Player>();
@@ -53,6 +72,8 @@ namespace ECS
         public Table<Capsule> Capsules = new Table<Capsule>();
         public Table<Health> Health = new Table<Health>();
         public Table<SpawnPoint> SpawnPoints = new Table<SpawnPoint>();
+        public Table<Weapon> Weapons = new Table<Weapon>();
+        public Table<Projectile> Projectiles = new Table<Projectile>();
         
         public Match Match = new Match();
     }
