@@ -31,6 +31,8 @@ namespace ECS
                 
                 new ApplyInputToMovementSystem(_settings), 
                 
+                new DamageZoneSystem(),
+                
                 new DeathResolverSystem(),
             };
         }

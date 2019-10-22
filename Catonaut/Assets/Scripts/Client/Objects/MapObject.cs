@@ -6,6 +6,7 @@ namespace Client.Objects
     {
         public Transform[] SpawnZones;
         public KeyObject[] Keys;
-        public CapsuleObject Capsule; 
+        public CapsuleObject Capsule;
+        public DamageZoneObject[] DamageZoneObjects;
     }
 }

@@ -81,7 +81,8 @@ namespace ECS
         public Table<SpawnPoint> SpawnPoints = new Table<SpawnPoint>();
         public Table<Weapon> Weapons = new Table<Weapon>();
         public Table<Projectile> Projectiles = new Table<Projectile>();
-        
+        public Table<DamageZone> DamageZones = new Table<DamageZone>();
+
         public Match Match = new Match();
     }
 }

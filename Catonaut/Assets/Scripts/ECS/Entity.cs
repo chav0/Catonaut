@@ -54,8 +54,11 @@ namespace ECS
         public Capsule Capsule;
 
         public SpawnPoint SpawnPoint;
-        public Projectile Projectile; 
+        public Projectile Projectile;
 
+        public DamageZone DamageZone;
+        
+        
         public Player AddPlayer()
         {
             var player = new Player();
@@ -142,6 +145,14 @@ namespace ECS
             Projectile = projectile; 
             _world.Projectiles.CreateAt(this, projectile);
             return projectile; 
+        }
+        
+        public DamageZone AddDamageZone()
+        {
+            var damageZone = new DamageZone();
+            DamageZone = damageZone; 
+            _world.DamageZones.CreateAt(this, damageZone);
+            return damageZone; 
         }
     }
 }

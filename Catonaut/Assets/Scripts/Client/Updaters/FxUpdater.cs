@@ -23,8 +23,8 @@ namespace Client.Updaters
         {
             _world = world;
             var selfWeapon = world.ClientEntity.Weapon;
-            world.ClientEntity.Player.PlayerObject.SetLaser(selfWeapon.WeaponState == WeaponState.Ready); 
-            
+            world.ClientEntity.Player.PlayerObject.SetLaser(selfWeapon.WeaponState == WeaponState.Ready);
+
             _collectionUpdater.ProcessUpdate(this);
         }
 

@@ -15,6 +15,7 @@
         Idle,
         Charge,
         Ready,
+        Fire,
         Cooldown,
     }
 }

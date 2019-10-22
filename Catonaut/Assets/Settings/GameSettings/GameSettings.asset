@@ -100,7 +100,7 @@ MonoBehaviour:
   RotationSpeed: 3
   KeyRadius: 1
   CapsuleRadius: 3
-  MaxPlayerHealth: 50
+  MaxPlayerHealth: 3
   WeaponChargeTime: 0.5
   WeaponCooldownTime: 0.5
   ProjectileLifeTime: 1

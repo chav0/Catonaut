@@ -106,9 +106,22 @@ namespace ECS
             var capsule = capsuleEntity.AddCapsule();
             capsuleEntity.AddInventory(); 
             capsule.RequiredKeys.AddRange(capsuleBody.RequiredKeys);
-            capsule.Body = capsuleBody; 
+            capsule.Body = capsuleBody;
 
-            return world; 
+            foreach (var damageZoneBody in map.DamageZoneObjects)
+            {
+                var damageZoneEntity = world.CreateEntity();
+                var damageZone = damageZoneEntity.AddDamageZone();
+                var damageZoneHealth = damageZoneEntity.AddHealth();
+                damageZone.Damage = damageZoneBody.Damage;
+                damageZone.Position = damageZoneBody.transform.position;
+                damageZone.Radius = damageZoneBody.Radius;
+                damageZone.NextDamageTick= damageZoneBody.NextTick;
+                damageZoneHealth.CurrentHealth = damageZoneBody.Health;
+                damageZoneHealth.MaxHealth = damageZoneBody.Health;
+            }
+            
+            return world;
         }
     }
 }
