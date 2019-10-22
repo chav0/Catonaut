@@ -101,5 +101,7 @@ MonoBehaviour:
   KeyRadius: 1
   CapsuleRadius: 3
   MaxPlayerHealth: 50
-  WeaponChargeTime: 0
-  WeaponCooldownTime: 0
+  WeaponChargeTime: 0.5
+  WeaponCooldownTime: 0.5
+  ProjectileLifeTime: 1
+  ProjectileRange: 10

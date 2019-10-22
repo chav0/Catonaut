@@ -19,10 +19,17 @@ namespace ECS
         {
             return new SystemBase[]
             {
-                new ApplyInputToMovementSystem(_settings), 
+                new ProjectileCleanUpSystem(), 
+
                 new FlashlightSystem(_settings), 
                 new KeysSystem(_settings),
                 new InsertingKeysInCapsuleSystem(_settings),
+
+                new WeaponSystem(_settings),
+                new ProjectileSystem(),
+                
+                new ApplyInputToMovementSystem(_settings), 
+                
                 new DeathResolverSystem(),
             };
         }

@@ -7,6 +7,7 @@ namespace Client
     public class Resources : ScriptableObject
     {
         public PlayerObject PlayerObject;
-        public MapObject MapObject; 
+        public MapObject MapObject;
+        public FxObject Fx; 
     }
 }

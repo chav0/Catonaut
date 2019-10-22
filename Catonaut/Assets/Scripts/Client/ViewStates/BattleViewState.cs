@@ -7,11 +7,13 @@ namespace Client.ViewStates
     {
         private CameraUpdater _cameraUpdater;
         private PlayerUpdater _playerUpdater;
+        private FxUpdater _fxUpdater; 
 
         public override void OnEnter()
         {
             _cameraUpdater = new CameraUpdater(Context.Camera, Context.AppModel.Settings);
             _playerUpdater = new PlayerUpdater();
+            _fxUpdater = new FxUpdater(Context.Resources);
         }
         
         public override void PreModelUpdate()
@@ -43,6 +45,7 @@ namespace Client.ViewStates
         {
             _playerUpdater.Update(Context.AppModel.World);
             _cameraUpdater.Update(Context.AppModel.World);
+            _fxUpdater.Update(Context.AppModel.World);
         }
              
         private static Vector2 FillVectorByKeys(Vector2 moveStick, ref float speed, ref bool hasStick)

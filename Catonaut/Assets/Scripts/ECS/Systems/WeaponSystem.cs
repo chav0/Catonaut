@@ -1,4 +1,5 @@
 ﻿using System;
+using Client;
 using ECS.Components;
 using UnityEngine;
 
@@ -6,6 +7,13 @@ namespace ECS.Systems
 {
     public class WeaponSystem : SystemBase
     {
+        private readonly GameSettings _gameSettings; 
+    
+        public WeaponSystem(GameSettings settings)
+        {
+            _gameSettings = settings;
+        }
+        
         public override void Execute()
         {
             for (int i = 0; i < World.Weapons.Count; i++)
@@ -16,7 +24,7 @@ namespace ECS.Systems
                 
                 if(input == null)
                     continue;
-
+                
                 if (input.Aim && weapon.WeaponState == WeaponState.Idle)
                 {
                     weapon.ChargeTick = World.Tick + weapon.ChargeTime;
@@ -30,7 +38,7 @@ namespace ECS.Systems
                     weapon.WeaponState = WeaponState.Idle; 
                 }
 
-                if (input.Attack)
+                if (input.Attack && (weapon.WeaponState == WeaponState.Charge || weapon.WeaponState == WeaponState.Ready))
                 {
                     if (weapon.WeaponState == WeaponState.Ready)
                     {
@@ -38,10 +46,13 @@ namespace ECS.Systems
                         var projectile = projectileEntity.AddProjectile();
                         projectile.Owner = entity;
                         projectile.Position = entity.Transform.Position; 
-                        projectile.Direction = input.Direction.normalized;
+                        projectile.Direction = entity.Transform.Rotation * Vector3.forward;
+                        projectile.RemainingLifetime = (int) (_gameSettings.ProjectileLifeTime * TickRate) + World.Tick;
+                        projectile.SpeedPerTick =  (int) (_gameSettings.ProjectileRange /(_gameSettings.ProjectileLifeTime * TickRate));
                     }
                     
                     weapon.WeaponState = WeaponState.Cooldown;
+                    weapon.CooldownTick = World.Tick + weapon.CooldownTime; 
                 }
             }
         }

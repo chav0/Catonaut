@@ -45,8 +45,17 @@ namespace Client.ModelStates
         }
 
         public override void AddGameInput(Input input)
-        {
-            _input = input;
+        {          
+            if (_input == null)
+            {
+                _input = input;
+            }
+            else
+            {
+                _input.Aim |= input.Aim;
+                _input.Attack |= input.Attack;
+                _input.Aimed |= input.Aimed; 
+            }
         }
     }
 }

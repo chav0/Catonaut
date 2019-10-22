@@ -39,6 +39,8 @@ namespace Client
         
         [Header("Weapon")] 
         public float WeaponChargeTime;
-        public float WeaponCooldownTime; 
+        public float WeaponCooldownTime;
+        public float ProjectileLifeTime;
+        public float ProjectileRange; 
     }
 }

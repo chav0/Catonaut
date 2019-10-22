@@ -43,7 +43,6 @@ namespace ECS.Systems
                 
                 body.transform.position = transform.Position;
                 body.transform.rotation = transform.Rotation; 
-                body.SetLaser(input.Aimed);
             }
         }
     }

@@ -36,11 +36,6 @@ namespace ECS
         public void Simulate(Input input)
         {
             _world.ClientEntity.Input = input;
-
-            if (input != null)
-            {
-                
-            }
             
             _world.Tick++;
             for (int i = 0, count = _systems.Length; i < count; i++)
@@ -82,8 +77,8 @@ namespace ECS
                 health.CurrentHealth = health.MaxHealth;
 
                 var weapon = playerEntity.AddWeapon();
-                weapon.ChargeTime = (int) _gameSettings.WeaponChargeTime * tickRate; 
-                weapon.CooldownTime = (int) _gameSettings.WeaponCooldownTime * tickRate; 
+                weapon.ChargeTime = (int) (_gameSettings.WeaponChargeTime * tickRate); 
+                weapon.CooldownTime = (int) (_gameSettings.WeaponCooldownTime * tickRate); 
 
                 if (i == 0)
                 {

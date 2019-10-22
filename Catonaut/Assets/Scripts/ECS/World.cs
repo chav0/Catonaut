@@ -26,6 +26,11 @@ namespace ECS
             set => _entities[index] = value;
         }
 
+        public bool HasEntity(uint index)
+        {
+            return _entities.ContainsKey(index); 
+        }
+
         public Entity CreateEntity()
         {
             _lastId++; 
@@ -47,6 +52,7 @@ namespace ECS
             Health.DeleteAt(entity);
             SpawnPoints.DeleteAt(entity);
             Weapons.DeleteAt(entity);
+            Projectiles.DeleteAt(entity);
         }
 
         public void Dispose()
