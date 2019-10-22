@@ -13,7 +13,7 @@ namespace ECS.Systems
         {
             _gameSettings = settings;
             Debug.Log("Projectile life time: " + (int) (_gameSettings.ProjectileLifeTime * 40));
-            Debug.Log("Projectile speed: " + (int) (_gameSettings.ProjectileRange /(_gameSettings.ProjectileLifeTime * 40)));
+            Debug.Log("Projectile speed: " + (_gameSettings.ProjectileRange / (int) (_gameSettings.ProjectileLifeTime * 40)));
         }
         
         public override void Execute()
@@ -26,6 +26,16 @@ namespace ECS.Systems
                 
                 if(input == null)
                     continue;
+
+                if (weapon.WeaponState == WeaponState.Cooldown)
+                {
+                    Debug.Log(weapon.CooldownTick + " " + World.Tick);
+                }
+                
+                if (weapon.WeaponState == WeaponState.Charge)
+                {
+                    Debug.Log(weapon.ChargeTick + " " + World.Tick);
+                }
                 
                 if (input.Aim && weapon.WeaponState == WeaponState.Idle)
                 {
@@ -33,11 +43,11 @@ namespace ECS.Systems
                     weapon.ChargeTick = World.Tick + weapon.ChargeTime;
                     weapon.WeaponState = WeaponState.Charge;
                 }
-                else if (weapon.WeaponState == WeaponState.Charge && weapon.ChargeTick == World.Tick)
+                else if (weapon.WeaponState == WeaponState.Charge && weapon.ChargeTick <= World.Tick)
                 {
                     Debug.Log("Charge to Ready");
                     weapon.WeaponState = WeaponState.Ready;
-                } else if (weapon.WeaponState == WeaponState.Cooldown && weapon.CooldownTick == World.Tick)
+                } else if (weapon.WeaponState == WeaponState.Cooldown && weapon.CooldownTick <= World.Tick)
                 {
                     Debug.Log("CoolDown to Idle");
                     weapon.WeaponState = WeaponState.Idle; 
@@ -53,7 +63,7 @@ namespace ECS.Systems
                         projectile.Position = entity.Transform.Position; 
                         projectile.Direction = entity.Transform.Rotation * Vector3.forward;
                         projectile.RemainingLifetime = (int) (_gameSettings.ProjectileLifeTime * TickRate) + World.Tick;
-                        projectile.SpeedPerTick =  (int) (_gameSettings.ProjectileRange /(_gameSettings.ProjectileLifeTime * TickRate));
+                        projectile.SpeedPerTick =  (_gameSettings.ProjectileRange / (int) (_gameSettings.ProjectileLifeTime * TickRate));
                     }
                     
                     Debug.Log("Charge or Ready to Cooldown");
