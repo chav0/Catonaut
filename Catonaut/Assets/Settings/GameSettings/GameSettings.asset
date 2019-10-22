@@ -104,4 +104,4 @@ MonoBehaviour:
   WeaponChargeTime: 0.5
   WeaponCooldownTime: 0.5
   ProjectileLifeTime: 1
-  ProjectileRange: 10
+  ProjectileRange: 50
