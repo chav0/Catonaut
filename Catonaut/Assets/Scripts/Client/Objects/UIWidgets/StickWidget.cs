@@ -21,6 +21,7 @@ namespace Client.Objects.UIWidgets
             Pressed = true; 
             StartPosition = eventData.position;
             CurrentPosition = eventData.position;
+            Debug.Log("On Pointer Down");
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -35,6 +36,7 @@ namespace Client.Objects.UIWidgets
             UpPressed.Set();
             Pressed = false;
             Dragged = false; 
+            Debug.Log("On Pointer Up");
         }
         
         public void UpdateMoving(out Vector2 moving, out float speed)
