@@ -23,9 +23,6 @@ namespace ECS.Systems
                 var entity = World.Weapons.EntityAt(i);
                 var weapon = entity.Weapon;
                 var input = entity.Input; 
-                
-                if(input == null)
-                    continue;
 
                 if (weapon.WeaponState == WeaponState.Cooldown)
                 {
@@ -37,23 +34,23 @@ namespace ECS.Systems
                     Debug.Log(weapon.ChargeTick + " " + World.Tick);
                 }
                 
-                if (input.Aim && weapon.WeaponState == WeaponState.Idle)
+                if (input != null && input.Aim && weapon.WeaponState == WeaponState.Idle)
                 {
                     Debug.Log("Idle to Charge");
                     weapon.ChargeTick = World.Tick + weapon.ChargeTime;
                     weapon.WeaponState = WeaponState.Charge;
                 }
-                else if (weapon.WeaponState == WeaponState.Charge && weapon.ChargeTick <= World.Tick)
+                else if (weapon.WeaponState == WeaponState.Charge && weapon.ChargeTick == World.Tick)
                 {
                     Debug.Log("Charge to Ready");
                     weapon.WeaponState = WeaponState.Ready;
-                } else if (weapon.WeaponState == WeaponState.Cooldown && weapon.CooldownTick <= World.Tick)
+                } else if (weapon.WeaponState == WeaponState.Cooldown && weapon.CooldownTick == World.Tick)
                 {
                     Debug.Log("CoolDown to Idle");
                     weapon.WeaponState = WeaponState.Idle; 
                 }
 
-                if (input.Attack && (weapon.WeaponState == WeaponState.Charge || weapon.WeaponState == WeaponState.Ready))
+                if (input != null && input.Attack && (weapon.WeaponState == WeaponState.Charge || weapon.WeaponState == WeaponState.Ready))
                 {
                     if (weapon.WeaponState == WeaponState.Ready)
                     {
