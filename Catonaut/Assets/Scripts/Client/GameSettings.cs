@@ -42,5 +42,7 @@ namespace Client
         public float WeaponCooldownTime;
         public float ProjectileLifeTime;
         public float ProjectileRange; 
+        public float ProjectileRadius; 
+        public int ProjectileDamage; 
     }
 }

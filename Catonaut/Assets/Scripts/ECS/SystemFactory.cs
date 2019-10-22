@@ -27,6 +27,7 @@ namespace ECS
 
                 new WeaponSystem(_settings),
                 new ProjectileSystem(),
+                new HitsSystem(_settings), 
                 
                 new ApplyInputToMovementSystem(_settings), 
                 
