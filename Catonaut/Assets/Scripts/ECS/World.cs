@@ -13,7 +13,8 @@ namespace ECS
         private uint _lastId = 0; 
         
         public int Tick;
-        public Entity ClientEntity; 
+        public Entity ClientEntity;
+        public MapObject Map; 
 
         public World()
         {

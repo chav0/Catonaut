@@ -49,6 +49,7 @@ namespace ECS
             var world = new World();
 
             var map = _scene.CreateMap();
+            world.Map = map; 
 
             foreach (var spawnZoneBody in map.SpawnZones)
             {
