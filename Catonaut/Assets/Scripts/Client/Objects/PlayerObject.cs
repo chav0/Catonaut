@@ -1,5 +1,6 @@
 ﻿using ECS;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Experimental.GlobalIllumination;
 
 namespace Client.Objects
@@ -7,7 +8,8 @@ namespace Client.Objects
     public class PlayerObject : EntityRefObject
     {
         public Animator Animator;
-        public CharacterController CharacterController; 
+        public CharacterController CharacterController;
+        public NavMeshAgent NavMeshAgent;  
         public Rigidbody Rigidbody;
         public Light Flashlight;  
         public GameObject Laser;  

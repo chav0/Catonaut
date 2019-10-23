@@ -17,8 +17,8 @@ namespace Client.Updaters
 
                 if (body != null && health != null)
                 {
-                    body.HealthBar.transform.localScale = new Vector3(body.HealthBar.transform.localScale.y,(health.CurrentHealth / (float) health.MaxHealth)
-                        , body.HealthBar.transform.localScale.z);
+                    body.HealthBar.transform.localScale = new Vector3(body.HealthBar.transform.localScale.x,
+                        (health.CurrentHealth / (float) health.MaxHealth) / 10f, body.HealthBar.transform.localScale.z);
                 }
             }
         }

@@ -29,6 +29,7 @@ namespace ECS
                 new ProjectileSystem(),
                 new HitsSystem(_settings), 
                 
+                new BotBehaviourSystem(_settings),
                 new ApplyInputToMovementSystem(_settings), 
                 
                 new DamageZoneSystem(),

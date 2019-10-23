@@ -81,14 +81,14 @@ namespace ECS
                 weapon.ChargeTime = (int) (_gameSettings.WeaponChargeTime * tickRate); 
                 weapon.CooldownTime = (int) (_gameSettings.WeaponCooldownTime * tickRate); 
 
-                if (i == 0)
-                {
-                    world.ClientEntity = playerEntity; 
-                }
-                
                 var body = _scene.CreatePlayer();
                 body.Entity = playerEntity;
                 player.PlayerObject = body; 
+                
+                if (i == 0)
+                {
+                    world.ClientEntity = playerEntity;
+                }
             }
 
             foreach (var keyBody in map.Keys)

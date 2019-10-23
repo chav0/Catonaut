@@ -34,6 +34,7 @@ namespace ECS.Systems
                 {
                     body.transform.position = transform.Position;
                     body.CharacterController.Move(deltaMove);
+                    body.transform.position = new Vector3(body.transform.position.x, 0f, body.transform.position.z);
                 
                     transform.Position = body.transform.position;
 
