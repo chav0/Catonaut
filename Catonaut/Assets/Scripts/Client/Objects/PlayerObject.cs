@@ -14,6 +14,7 @@ namespace Client.Objects
         private static readonly int RightBlend = Animator.StringToHash("RightBlend");
         private static readonly int ForwardBlend = Animator.StringToHash("ForwardBlend");
         private static readonly int BlendSpeed = Animator.StringToHash("BlendSpeed");
+        public Transform HealthBar;
 
         public void SetAnimations(float speed)
         {

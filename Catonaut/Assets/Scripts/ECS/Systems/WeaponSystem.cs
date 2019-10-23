@@ -42,7 +42,7 @@ namespace ECS.Systems
                         var projectileEntity = World.CreateEntity();
                         var projectile = projectileEntity.AddProjectile();
                         projectile.Owner = entity;
-                        projectile.Position = entity.Transform.Position + new Vector3(0f, .5f, 0f); 
+                        projectile.Position = entity.Transform.Position + new Vector3(0f, 0.25f, 0.25f); 
                         projectile.Direction = entity.Transform.Rotation * Vector3.forward;
                         projectile.RemainingLifetime = (int) (_gameSettings.ProjectileLifeTime * TickRate) + World.Tick;
                         projectile.SpeedPerTick =  (_gameSettings.ProjectileRange / (int) (_gameSettings.ProjectileLifeTime * TickRate));
