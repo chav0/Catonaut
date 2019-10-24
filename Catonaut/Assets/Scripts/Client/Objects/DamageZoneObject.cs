@@ -2,11 +2,10 @@
 
 namespace Client.Objects
 {
-    public class DamageZoneObject : MonoBehaviour
+    public class DamageZoneObject : EntityRefObject
     {
         public int Damage;
         public int Health;
         public float Radius;
-        public int NextTick;
     }
 }

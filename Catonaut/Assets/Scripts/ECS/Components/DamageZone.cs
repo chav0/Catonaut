@@ -9,7 +9,5 @@ namespace ECS.Components
         public int Damage;
         public DamageZoneObject Body;
         public float Radius;
-        public int NextDamageTick;
-        public int DamageIntervalTick;
     }
 }

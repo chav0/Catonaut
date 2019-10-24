@@ -24,6 +24,8 @@ namespace ECS
                 new FlashlightSystem(_settings), 
                 new KeysSystem(_settings),
                 new InsertingKeysInCapsuleSystem(_settings),
+                
+                new FlashlightWeaponSystem(_settings), 
 
                 new WeaponSystem(_settings),
                 new ProjectileSystem(),
@@ -32,7 +34,7 @@ namespace ECS
                 new BotBehaviourSystem(_settings),
                 new ApplyInputToMovementSystem(_settings), 
                 
-                new DamageZoneSystem(),
+                new DamageZoneSystem(_settings),
                 
                 new DeathResolverSystem(),
             };

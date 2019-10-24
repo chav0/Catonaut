@@ -23,7 +23,8 @@ namespace Client
         public AnimationCurve FlashlightRange;
         public AnimationCurve FlashlighIntensity;
         public AnimationCurve FlashlightYOffset;
-        public float FlashlightLerp; 
+        public float FlashlightLerp;
+        public int FlashlightDamage;
 
         [Header("Movement")] 
         public float MaxSpeed;
@@ -43,6 +44,9 @@ namespace Client
         public float ProjectileLifeTime;
         public float ProjectileRange; 
         public float ProjectileRadius; 
-        public int ProjectileDamage; 
+        public int ProjectileDamage;
+        
+        [Header("Common")]
+        public int DamageTicks;
     }
 }

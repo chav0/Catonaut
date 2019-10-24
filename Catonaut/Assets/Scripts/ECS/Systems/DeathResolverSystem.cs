@@ -11,7 +11,8 @@ namespace ECS.Systems
             {
                 var entity = World.Health.EntityAt(i);
                 var health = entity.Health;
-                var player = entity.Player; 
+                var player = entity.Player;
+                var damageZone = entity.DamageZone;
 
                 if (health.CurrentHealth == 0 && player != null)
                 {
@@ -22,6 +23,13 @@ namespace ECS.Systems
                     transform.Position = spawnPoint.Position;
                     transform.Rotation = spawnPoint.Rotation;
                     health.CurrentHealth = health.MaxHealth; 
+                }
+
+                if (health.CurrentHealth == 0 && damageZone != null)
+                {
+                    Debug.Log("DamageZone Destroed");
+                    Object.Destroy(damageZone.Body.gameObject);
+                    World.DestroyEntity(entity);
                 }
             }
         }

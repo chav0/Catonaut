@@ -95,6 +95,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   FlashlightLerp: 0.92
+  FlashlightDamage: 1
   MaxSpeed: 4
   AimSpeedModificator: 0.5
   RotationSpeed: 3
@@ -107,3 +108,4 @@ MonoBehaviour:
   ProjectileRange: 20
   ProjectileRadius: 0.1
   ProjectileDamage: 2
+  DamageTicks: 40

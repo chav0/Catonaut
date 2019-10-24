@@ -1,9 +1,17 @@
-﻿using ECS.Physics;
+﻿using Client;
+using ECS.Physics;
 
 namespace ECS.Systems
 {
     public class DamageZoneSystem : SystemBase
     {
+        private readonly GameSettings _gameSettings; 
+    
+        public DamageZoneSystem(GameSettings settings)
+        {
+            _gameSettings = settings;
+        }
+        
         public override void Execute()
         {
             var damageZoneCount = World.DamageZones.Count;
@@ -23,7 +31,8 @@ namespace ECS.Systems
                     var playerHealth = overlap.Health;
                     if (playerHealth == null) 
                         continue;
-                    if (World.Tick % damageZone.NextDamageTick == 0)
+                    
+                    if (World.Tick % _gameSettings.DamageTicks == 0)
                     {
                         playerHealth.CurrentHealth -= damageZone.Damage;
                         if (playerHealth.CurrentHealth < 0) 

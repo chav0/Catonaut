@@ -82,6 +82,8 @@ namespace ECS
         public Table<Weapon> Weapons = new Table<Weapon>();
         public Table<Projectile> Projectiles = new Table<Projectile>();
         public Table<DamageZone> DamageZones = new Table<DamageZone>();
+        
+        public Table<Shield> Shield = new Table<Shield>();
 
         public Match Match = new Match();
     }

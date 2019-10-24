@@ -57,6 +57,8 @@ namespace ECS
         public Projectile Projectile;
 
         public DamageZone DamageZone;
+
+        public Shield Shield;
         
         
         public Player AddPlayer()
@@ -153,6 +155,14 @@ namespace ECS
             DamageZone = damageZone; 
             _world.DamageZones.CreateAt(this, damageZone);
             return damageZone; 
+        }
+        
+        public Shield AddFlashlightWeapon()
+        {
+            var shield = new Shield();
+            Shield = shield; 
+            _world.Shield.CreateAt(this, Shield);
+            return Shield; 
         }
     }
 }

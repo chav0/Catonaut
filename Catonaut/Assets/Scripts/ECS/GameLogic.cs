@@ -116,9 +116,10 @@ namespace ECS
                 damageZone.Damage = damageZoneBody.Damage;
                 damageZone.Position = damageZoneBody.transform.position;
                 damageZone.Radius = damageZoneBody.Radius;
-                damageZone.NextDamageTick= damageZoneBody.NextTick;
+                damageZone.Body = damageZoneBody; 
                 damageZoneHealth.CurrentHealth = damageZoneBody.Health;
                 damageZoneHealth.MaxHealth = damageZoneBody.Health;
+                damageZoneBody.Entity = damageZoneEntity; 
             }
             
             return world;

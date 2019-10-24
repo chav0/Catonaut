@@ -6,6 +6,6 @@ namespace ECS.Components
     {
         public float Intensity;
         public float YOffset;
-        public float Range; 
+        public float Range;
     }
 }
