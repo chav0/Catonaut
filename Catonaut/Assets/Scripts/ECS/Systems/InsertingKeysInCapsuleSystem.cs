@@ -64,6 +64,8 @@ namespace ECS.Systems
 
             if (World.Match.ItsVictory)
                 Debug.Log("IT'S VICTORY");
+            else 
+                Debug.Log("YOU ARE LOSER");
         }
     }
 }

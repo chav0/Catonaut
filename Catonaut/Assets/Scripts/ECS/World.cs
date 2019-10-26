@@ -54,6 +54,7 @@ namespace ECS
             SpawnPoints.DeleteAt(entity);
             Weapons.DeleteAt(entity);
             Projectiles.DeleteAt(entity);
+            DamageZones.DeleteAt(entity);
         }
 
         public void Dispose()
@@ -68,6 +69,8 @@ namespace ECS
             Keys.Dispose();
             SpawnPoints.Dispose();
             Weapons.Dispose();
+            Projectiles.Dispose();
+            DamageZones.Dispose();
         }
 
         public Table<Player> Players = new Table<Player>();
