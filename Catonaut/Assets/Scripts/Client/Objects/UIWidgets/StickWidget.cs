@@ -6,12 +6,13 @@ namespace Client.Objects.UIWidgets
     public class StickWidget : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
     {
         public float MinRadius;
-        public float MaxRadius; 
+        public float MaxRadius;
+        public AudioSource ShotSound;
         public Vector2 StartPosition { get; private set; }
         public Vector2 CurrentPosition { get; private set; }
         public UIMessage DownPressed { get; } = new UIMessage();
         public UIMessage UpPressed { get; } = new UIMessage();
-
+        
         public bool Pressed { get; set; }
         public bool Dragged { get; set; }
 		
@@ -21,6 +22,7 @@ namespace Client.Objects.UIWidgets
             Pressed = true; 
             StartPosition = eventData.position;
             CurrentPosition = eventData.position;
+            ShotSound.enabled = false;
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -34,7 +36,8 @@ namespace Client.Objects.UIWidgets
             CurrentPosition = eventData.position;
             UpPressed.Set();
             Pressed = false;
-            Dragged = false; 
+            Dragged = false;
+            ShotSound.enabled = true;
         }
         
         public void UpdateMoving(out Vector2 moving, out float speed)
