@@ -104,8 +104,8 @@ MonoBehaviour:
   MaxPlayerHealth: 4
   WeaponChargeTime: 0.1
   WeaponCooldownTime: 0.2
-  ProjectileLifeTime: 0.3
+  ProjectileLifeTime: 2
   ProjectileRange: 20
-  ProjectileRadius: 0.1
+  ProjectileRadius: 0.5
   ProjectileDamage: 4
   DamageTicks: 40
