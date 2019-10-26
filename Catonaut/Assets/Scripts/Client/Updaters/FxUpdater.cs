@@ -4,6 +4,7 @@ using Client.Objects;
 using Client.Scene;
 using ECS;
 using ECS.Components;
+using UnityEngine;
 
 namespace Client.Updaters
 {
@@ -59,6 +60,7 @@ namespace Client.Updaters
         {
             var projectile = _world[entityId].Projectile;
             viewElement.transform.position = projectile.Position; 
+            viewElement.transform.rotation = Quaternion.LookRotation(projectile.Direction);
         }
 
         public void Dispose(uint entityId, FxObject viewElement)

@@ -19,9 +19,9 @@ MonoBehaviour:
   CameraLerp: 100
   CameraRotationLerp: 0.1
   CameraRotationSpeed: 500
-  maxYOffset: 0.78
-  maxIntensity: 25
-  maxRange: 20
+  maxYOffset: 2.34
+  maxIntensity: 52.06
+  maxRange: 5
   FlashlightRange:
     serializedVersion: 2
     m_Curve:

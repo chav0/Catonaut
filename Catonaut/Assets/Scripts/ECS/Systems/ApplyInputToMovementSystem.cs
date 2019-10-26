@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace ECS.Systems
 {
-    public class ApplyInputToMovementSystem : SystemBase
+    public class MovementSystem : SystemBase
     {
         private readonly GameSettings _gameSettings; 
     
-        public ApplyInputToMovementSystem(GameSettings settings)
+        public MovementSystem(GameSettings settings)
         {
             _gameSettings = settings;
         }
@@ -32,18 +32,18 @@ namespace ECS.Systems
             
                 if (input.Speed >= 0.1f || input.Aimed)
                 {
-                    body.transform.position = transform.Position + deltaMove;
-                    //body.CharacterController.Move(deltaMove);
-                    //body.transform.position = new Vector3(body.transform.position.x, 0f, body.transform.position.z);
-                
-                    transform.Position = body.transform.position;
+
+                    transform.Position += deltaMove;
+                    if (body.TryDepenetrate(transform.Position, out var delta))
+                    {
+                        transform.Position += delta;
+                    }
 
                     transform.Rotation = Quaternion.Lerp(Quaternion.LookRotation(input.Aimed ? Quaternion.Euler(0f, 225f, 0f) * aimedDirection : direction,
                         Vector3.up), transform.Rotation, _gameSettings.CameraRotationLerp);
                 }
-                
-                body.transform.position = transform.Position;
-                body.transform.rotation = transform.Rotation; 
+
+                body.transform.SetPositionAndRotation(transform.Position, transform.Rotation); 
             }
         }
     }
