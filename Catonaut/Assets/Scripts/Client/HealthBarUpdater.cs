@@ -20,6 +20,17 @@ namespace Client.Updaters
                     body.HealthBar.transform.localScale = new Vector3(body.HealthBar.transform.localScale.x,
                         (health.CurrentHealth / (float) health.MaxHealth) / 10f, body.HealthBar.transform.localScale.z);
                 }
+
+                if (body.LastHealth == 0)
+                {
+                    body.LastHealth = health.CurrentHealth; 
+                }
+                
+                if (body.LastHealth != health.CurrentHealth)
+                {
+                    body.SetDamageImpact();
+                    body.LastHealth = health.CurrentHealth; 
+                }
             }
         }
     }

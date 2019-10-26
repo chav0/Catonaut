@@ -50,5 +50,6 @@ namespace Client
         
         [Header("Common")]
         public int DamageTicks;
+        
     }
 }

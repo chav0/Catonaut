@@ -33,7 +33,8 @@ namespace ECS.Systems
                     if (player == null || inventory == null || (transform.Position - keyBody.transform.position).magnitude > _gameSettings.KeyRadius) 
                         continue;
                         
-                    key.HasOwner = true; 
+                    key.HasOwner = true;
+
                     key.Body.gameObject.SetActive(false);
                     inventory.Keys.Add(World[key.EntityId]);
                 }

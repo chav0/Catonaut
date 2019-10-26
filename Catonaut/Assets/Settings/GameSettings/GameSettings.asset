@@ -95,7 +95,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   FlashlightLerp: 0.92
-  FlashlightDamage: 1
+  FlashlightDamage: 0
   MaxSpeed: 4
   AimSpeedModificator: 0.5
   RotationSpeed: 3

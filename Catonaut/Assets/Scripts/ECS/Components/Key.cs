@@ -1,4 +1,5 @@
 ﻿using Client.Objects;
+using UnityEngine;
 
 namespace ECS.Components
 {
@@ -6,7 +7,7 @@ namespace ECS.Components
     {
         public KeyColor KeyColor;
         public KeyObject Body;
-        public bool HasOwner; 
+        public bool HasOwner;
     }
 
     public enum KeyColor
