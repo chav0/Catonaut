@@ -39,7 +39,7 @@ namespace Client.ViewStates
             input.Attack = hud.AttackStick.UpPressed.TryGet(); 
             input.Aimed = hud.AttackStick.Dragged;
             input.Aim = hud.AttackStick.DownPressed.TryGet();
-            input.Direction = rotation; 
+            input.Direction = GetRelativeMovementVector(rotation); 
             Context.AppModel.AddGameInput(input); 
         }
 

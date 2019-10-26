@@ -23,14 +23,14 @@ namespace ECS.Systems
                 if (key.HasOwner) 
                     continue;
                 
-                var overlaps = PhysicsUtils.OverlapSphere(keyBody.transform.position, _gameSettings.KeyRadius, Layers.MovementMask);
-
-                foreach (var entity in overlaps)
+                for (int j = 0; j < World.Players.Count; j++)
                 {
+                    var entity = World.Players.EntityAt(j); 
                     var player = entity.Player;
-                    var inventory = entity.Inventory; 
+                    var inventory = entity.Inventory;
+                    var transform = entity.Transform; 
                         
-                    if (player == null || inventory == null) 
+                    if (player == null || inventory == null || (transform.Position - keyBody.transform.position).magnitude > _gameSettings.KeyRadius) 
                         continue;
                         
                     key.HasOwner = true; 

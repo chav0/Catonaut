@@ -39,8 +39,8 @@ namespace ECS.Systems
                         transform.Position += delta;
                     }
 
-                    transform.Rotation = Quaternion.Lerp(Quaternion.LookRotation(input.Aimed ? Quaternion.Euler(0f, 225f, 0f) * aimedDirection : direction,
-                        Vector3.up), transform.Rotation, _gameSettings.CameraRotationLerp);
+                    transform.Rotation = Quaternion.Lerp(Quaternion.LookRotation(input.Aimed ? aimedDirection : direction,
+                        Vector3.up), transform.Rotation, entity == World.ClientEntity ? _gameSettings.PlayerRotationLerp : _gameSettings.BotRotationLerp);
                 }
 
                 body.transform.SetPositionAndRotation(transform.Position, transform.Rotation); 

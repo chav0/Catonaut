@@ -5,6 +5,7 @@
         public WeaponState WeaponState;
         public int ChargeTick;
         public int CooldownTick;
+        public int RandomNextBotShootingTick; 
 
         public int ChargeTime; 
         public int CooldownTime; 

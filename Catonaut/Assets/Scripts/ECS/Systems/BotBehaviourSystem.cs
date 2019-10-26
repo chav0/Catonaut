@@ -11,36 +11,48 @@ namespace ECS.Systems
     {
         private readonly GameSettings _gameSettings;
         private Vector3 _currentTargetPosition;
-        private bool _moveToEnemy; 
+        private Vector3 _randomRotation;
+        private bool _moveToEnemy;
         
         public BotBehaviourSystem(GameSettings settings)
         {
             _gameSettings = settings;
+            _randomRotation = new Vector3(0f, Random.Range(-10f, 10f),  0f); 
         }
         
         public override void Execute()
         {
             for (int i = 0; i < World.Players.Count; i++)
             {
-                var player = World.Players.EntityAt(i); 
+                var bot = World.Players.EntityAt(i); 
                 
-                if(player == World.ClientEntity)
+                if(bot == World.ClientEntity)
                     continue;
 
-                ChooseTargetPosition(player); 
-                Run(player); 
+                bot.Input = new Input();
+                ChooseTargetPosition(bot); 
+                Shoot(bot);
+                Run(bot); 
             }
         }
 
         private void ChooseTargetPosition(Entity bot)
         {
-            var capsule = World.Capsules[0];
+            var capsuleEntity = World.Capsules.EntityAt(0); 
+            var capsule = capsuleEntity.Capsule;
+            var capsuleInventory = capsuleEntity.Inventory.Keys.Select(x => x.Key.KeyColor);
+            var botInventory = bot.Inventory.Keys.Select(x => x.Key.KeyColor); 
+            
             var anyOneNeed = false;
 
             for (int i = 0; i < capsule.RequiredKeys.Count; i++)
             {
                 var key = capsule.RequiredKeys[i];
-                if (!bot.Inventory.Keys.Select(x => x.Key.KeyColor).Contains(key))
+                
+                if(capsuleInventory.Contains(key))
+                    continue;
+                
+                if (!botInventory.Contains(key))
                 {
                     anyOneNeed = true;
                     break;
@@ -49,7 +61,7 @@ namespace ECS.Systems
 
             if(anyOneNeed)
             {
-                if ((bot.Transform.Position - _currentTargetPosition).sqrMagnitude < 0.25f || _moveToEnemy)
+                if ((bot.Transform.Position - _currentTargetPosition).sqrMagnitude < 0.25f || _moveToEnemy || _currentTargetPosition == Vector3.zero)
                 {
                     if (_moveToEnemy)
                     {
@@ -88,7 +100,6 @@ namespace ECS.Systems
 
         private void Run(Entity bot)
         {
-            bot.Input = new Input();
             var path = new NavMeshPath();
             bool found = NavMesh.CalculatePath(bot.Transform.Position, _currentTargetPosition,
                 NavMesh.AllAreas, path);
@@ -99,9 +110,35 @@ namespace ECS.Systems
                 var direction = (bot.Transform.Position - botPath).normalized;
                 var inputDirection = new Vector2(-direction.x, -direction.z);
                 bot.Input.Movement = inputDirection;
-                bot.Input.Direction = inputDirection; 
+                
+                if (!bot.Input.Aimed)
+                    bot.Input.Direction = inputDirection; 
+                
                 bot.Input.Speed = bot.Input.Movement.sqrMagnitude > 0.25f ? 0.2f : 0f; 
             }
+        }
+
+        private void Shoot(Entity bot)
+        {
+            var player = World.ClientEntity;
+            var distance = player.Transform.Position - bot.Transform.Position; 
+            if (distance.magnitude < _gameSettings.ProjectileRange / 3f)
+            {
+                _randomRotation = Vector3.Lerp(_randomRotation, _randomRotation + new Vector3(0f, Random.Range(-10f, 10f),  0f), 0.0001f);
+                var randomDirection = (Quaternion.Euler(_randomRotation) * distance); 
+                var inputDirection = new Vector2(randomDirection.x, randomDirection.z);
+
+                bot.Input.Direction = Vector2.Lerp(inputDirection, bot.Input.Direction, _gameSettings.BotRotationLerp);
+                bot.Input.Aimed = true;
+                bot.Input.Aim = true;
+                if (bot.Weapon.WeaponState == WeaponState.Ready && bot.Weapon.RandomNextBotShootingTick < World.Tick)
+                {
+                    bot.Weapon.RandomNextBotShootingTick = World.Tick + Random.Range(30, 60); 
+                    _randomRotation = new Vector3(0f, Random.Range(-_gameSettings.BotRandomRotation, _gameSettings.BotRandomRotation),  0f); 
+                }
+            }
+            
+            bot.Input.Attack = bot.Weapon.WeaponState == WeaponState.Ready && bot.Weapon.RandomNextBotShootingTick == World.Tick;
         }
     }
 }

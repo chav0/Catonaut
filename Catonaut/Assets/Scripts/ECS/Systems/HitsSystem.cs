@@ -23,7 +23,7 @@ namespace ECS.Systems
                 if(projectile.IsDead)
                     continue;
                 
-                var overlaps = PhysicsUtils.OverlapSphere(projectile.Position, _gameSettings.ProjectileRadius, Layers.MovementMask);
+                var overlaps = PhysicsUtils.OverlapSphere(projectile.Position, _gameSettings.ProjectileRadius, Layers.MovementMask | Layers.GeometryMask);
                 
                 foreach (var entity in overlaps)
                 {
