@@ -38,6 +38,8 @@ namespace ECS.Systems
                     {
                         transform.Position += delta;
                     }
+                    
+                    transform.Position = new Vector3(transform.Position.x, 0f, transform.Position.z);
 
                     transform.Rotation = Quaternion.Lerp(Quaternion.LookRotation(input.Aimed ? aimedDirection : direction,
                         Vector3.up), transform.Rotation, entity == World.ClientEntity ? _gameSettings.PlayerRotationLerp : _gameSettings.BotRotationLerp);
