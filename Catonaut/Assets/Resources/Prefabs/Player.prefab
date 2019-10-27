@@ -272,7 +272,7 @@ Animator:
   m_GameObject: {fileID: 5455703302484948458}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 02dd6406ed1ebc248b2fafd0485e0de9, type: 3}
-  m_Controller: {fileID: 9100000, guid: 9e22852b9da8d834bab164ef1034a932, type: 2}
+  m_Controller: {fileID: 9100000, guid: f1d3298109f591c408cdb062d023b799, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1133,7 +1133,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7489365534342363317}
-  m_LocalRotation: {x: -0.6819757, y: 0.20888385, z: -0.21514684, w: 0.6670747}
+  m_LocalRotation: {x: -0.68197566, y: 0.20888385, z: -0.21514681, w: 0.6670747}
   m_LocalPosition: {x: 0.0020448545, y: 0.00069047225, z: 0.0004264798}
   m_LocalScale: {x: 0.99999994, y: 0.9999999, z: 0.99999994}
   m_Children:
@@ -1270,6 +1270,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5455703302484948454}
     m_Modifications:
+    - target: {fileID: 7986055458515234921, guid: be393f06ff0dfba4fbeaef61c56caedc,
+        type: 3}
+      propertyPath: m_Name
+      value: LaserAim
+      objectReference: {fileID: 0}
     - target: {fileID: 7989042690692167229, guid: be393f06ff0dfba4fbeaef61c56caedc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1324,11 +1329,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7986055458515234921, guid: be393f06ff0dfba4fbeaef61c56caedc,
-        type: 3}
-      propertyPath: m_Name
-      value: LaserAim
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be393f06ff0dfba4fbeaef61c56caedc, type: 3}
