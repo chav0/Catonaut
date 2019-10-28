@@ -110,4 +110,11 @@ MonoBehaviour:
   ProjectileRange: 20
   ProjectileRadius: 0.5
   ProjectileDamage: 3
+  MonsterSpeed: 3
+  FollowMonsterRadius: 5
+  AttackMonsterRadius: 3
+  AttackIntervalTicks: 20
+  MonsterDamage: 1
+  MonsterProjectileLifeTimeSeconds: 1
+  MonsterProjectileRange: 3
   DamageTicks: 20
