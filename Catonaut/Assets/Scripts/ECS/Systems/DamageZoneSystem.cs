@@ -21,6 +21,7 @@ namespace ECS.Systems
                 var damageZone = entity.DamageZone;
                 var health = entity.Health;
                 var overlaps = PhysicsUtils.OverlapSphere(damageZone.Position, damageZone.Radius, Layers.MovementMask);
+                var body = entity.DamageZone.Body;
 
                 foreach (var overlap in overlaps)
                 {
@@ -38,6 +39,17 @@ namespace ECS.Systems
                         if (playerHealth.CurrentHealth < 0) 
                             playerHealth.CurrentHealth = 0;
                     }
+                }
+                
+                if (body.LastHealth == 0)
+                {
+                    body.LastHealth = health.CurrentHealth; 
+                }
+                
+                if (body.LastHealth != health.CurrentHealth)
+                {
+                    body.SetDamageImpact();
+                    body.LastHealth = health.CurrentHealth; 
                 }
             }
         }
