@@ -30,10 +30,14 @@ namespace ECS.Systems
             
                 if (count == 0)
                     return;
-                
+
                 foreach (var result in _results)
                 {
-                    var collider = _results[i].collider;
+                    var collider = result.collider;
+                    
+                    if(collider == null)
+                        continue;
+                    
                     var entityRef = collider.gameObject.GetComponent<EntityRefObject>();
                     
                     if(entityRef != null)
@@ -49,6 +53,7 @@ namespace ECS.Systems
                             if (health.CurrentHealth < 0)
                                 health.CurrentHealth = 0;
 
+                            Debug.Log("Add damage " + _gameSettings.ProjectileDamage);
                             projectile.IsDead = true;
                         }
                     }
