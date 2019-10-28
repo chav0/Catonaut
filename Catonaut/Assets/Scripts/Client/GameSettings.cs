@@ -13,7 +13,9 @@ namespace Client
         public float CameraMinAngle;
         public float CameraVerticalRotationSpeed;
         public float CameraLerp;
-        public float CameraRotationLerp;
+        public float PlayerRotationLerp;
+        public float BotRotationLerp;
+        public float BotRandomRotation;
         public float CameraRotationSpeed;
 
         [Header("Flashlight")] 
@@ -48,5 +50,6 @@ namespace Client
         
         [Header("Common")]
         public int DamageTicks;
+        
     }
 }

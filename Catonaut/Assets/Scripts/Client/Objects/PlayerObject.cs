@@ -1,4 +1,5 @@
-﻿using ECS;
+﻿using DG.Tweening;
+using ECS;
 using ECS.Physics;
 using UnityEngine;
 using UnityEngine.AI;
@@ -9,6 +10,9 @@ namespace Client.Objects
     public class PlayerObject : EntityRefObject
     {
         public Animator Animator;
+        public AudioSource WalkSound;
+        public SkinnedMeshRenderer SkinnedMeshRenderer;
+        public Material DamageMaterial;
         public Light Flashlight;
         public SphereCollider Collider; 
         public GameObject Laser;  
@@ -17,11 +21,21 @@ namespace Client.Objects
         private static readonly int BlendSpeed = Animator.StringToHash("BlendSpeed");
         public Transform HealthBar;
         
+        private static readonly int ColorCached = Shader.PropertyToID("_BaseColor");
+        private Sequence _deathColoring; 
+        public int LastHealth { get; set; }
+
         private static readonly Collider[] Buffer = new Collider[20];
 
         public void SetAnimations(float speed)
         {
             Animator.SetFloat(BlendSpeed, speed);
+            if(speed > 0.5f)
+                WalkSound.enabled = true;
+            else
+            {
+                WalkSound.enabled = false;
+            }
         }
 
         public void SetFlashLight(float intensity, float yOffset, float range)
@@ -56,6 +70,20 @@ namespace Client.Objects
                 }
             }
             return result;
+        }
+
+        public void SetDamageImpact()
+        {
+            _deathColoring?.Kill();
+            _deathColoring = DOTween.Sequence();
+            Debug.Log("HUI2");
+            _deathColoring.AppendCallback(() => Flashlight.color = Color.red)
+                .InsertCallback(.3f, () =>
+                {
+                    Debug.Log("HUI");
+                    Flashlight.color = Color.white;
+                })
+                .Play(); 
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Client;
+using Client.Objects;
 using ECS.Physics;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace ECS.Systems
     public class HitsSystem : SystemBase
     {
         private readonly GameSettings _gameSettings; 
+        private readonly RaycastHit[] _results = new RaycastHit[50];
     
         public HitsSystem(GameSettings settings)
         {
@@ -23,21 +25,36 @@ namespace ECS.Systems
                 if(projectile.IsDead)
                     continue;
                 
-                var overlaps = PhysicsUtils.OverlapSphere(projectile.Position, _gameSettings.ProjectileRadius, Layers.MovementMask);
+                var count = UnityEngine.Physics.RaycastNonAlloc(projectile.Position, projectile.Direction, _results,
+                    projectile.SpeedPerTick, Layers.GeometryMask | Layers.MovementMask);
+            
+                if (count == 0)
+                    return;
                 
-                foreach (var entity in overlaps)
+                foreach (var result in _results)
                 {
-                    var player = entity.Player;
-
-                    if (player != null && entity != projectile.Owner)
+                    var collider = _results[i].collider;
+                    var entityRef = collider.gameObject.GetComponent<EntityRefObject>();
+                    
+                    if(entityRef != null)
                     {
-                        var health = entity.Health;
-                        health.CurrentHealth -= _gameSettings.ProjectileDamage;
+                        var entity = entityRef.Entity; 
+                        var player = entity.Player;
 
-                        if (health.CurrentHealth < 0)
-                            health.CurrentHealth = 0; 
-                        
-                        projectile.IsDead = true; 
+                        if (player != null && entity != projectile.Owner)
+                        {
+                            var health = entity.Health;
+                            health.CurrentHealth -= _gameSettings.ProjectileDamage;
+
+                            if (health.CurrentHealth < 0)
+                                health.CurrentHealth = 0;
+
+                            projectile.IsDead = true;
+                        }
+                    }
+                    else
+                    {
+                        projectile.IsDead = true;
                     }
                 }
             }

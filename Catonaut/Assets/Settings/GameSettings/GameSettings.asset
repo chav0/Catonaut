@@ -17,11 +17,13 @@ MonoBehaviour:
   CameraMinAngle: -1.07
   CameraVerticalRotationSpeed: 0.1
   CameraLerp: 100
-  CameraRotationLerp: 0.1
+  PlayerRotationLerp: 0.1
+  BotRotationLerp: 0.99
+  BotRandomRotation: 10
   CameraRotationSpeed: 500
   maxYOffset: 2.34
-  maxIntensity: 52.06
-  maxRange: 5
+  maxIntensity: 30
+  maxRange: 8
   FlashlightRange:
     serializedVersion: 2
     m_Curve:
@@ -95,7 +97,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   FlashlightLerp: 0.92
-  FlashlightDamage: 1
+  FlashlightDamage: 2
   MaxSpeed: 4
   AimSpeedModificator: 0.5
   RotationSpeed: 3
@@ -104,8 +106,8 @@ MonoBehaviour:
   MaxPlayerHealth: 4
   WeaponChargeTime: 0.1
   WeaponCooldownTime: 0.2
-  ProjectileLifeTime: 0.3
+  ProjectileLifeTime: 1
   ProjectileRange: 20
-  ProjectileRadius: 0.1
-  ProjectileDamage: 4
+  ProjectileRadius: 0.5
+  ProjectileDamage: 1
   DamageTicks: 40

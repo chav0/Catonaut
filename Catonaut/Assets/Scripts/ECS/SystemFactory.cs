@@ -26,15 +26,13 @@ namespace ECS
                 new InsertingKeysInCapsuleSystem(_settings),
                 
                 new FlashlightWeaponSystem(_settings), 
-
                 new WeaponSystem(_settings),
                 new ProjectileSystem(),
                 new HitsSystem(_settings), 
-          
+                new DamageZoneSystem(_settings),
+                
                 new MovementSystem(_settings),       
                 new BotBehaviourSystem(_settings),
-                
-                new DamageZoneSystem(_settings),
                 
                 new DeathResolverSystem(),
             };
