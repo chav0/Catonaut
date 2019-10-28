@@ -242,6 +242,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1477440865623460139, guid: 1261fd32eb0b2a14093c59ebceee305d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1477440865623460139, guid: 1261fd32eb0b2a14093c59ebceee305d,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7901025395279817938, guid: 1261fd32eb0b2a14093c59ebceee305d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -462,16 +472,6 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1477440865623460139, guid: 1261fd32eb0b2a14093c59ebceee305d,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1477440865623460139, guid: 1261fd32eb0b2a14093c59ebceee305d,
-        type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1261fd32eb0b2a14093c59ebceee305d, type: 3}
 --- !u!1 &1202784142
@@ -537,9 +537,9 @@ AudioSource:
   m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6ea5cfc391825448098e64675a9e8b33, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8f06b309bebbfad4ba0c643b97fd9dc2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.35
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -825,5 +825,10 @@ PrefabInstance:
       propertyPath: ShotSound
       value: 
       objectReference: {fileID: 1368957697}
+    - target: {fileID: 8261363249758980828, guid: 7632e873340fe8646a1ddf4cb2f38c0b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7632e873340fe8646a1ddf4cb2f38c0b, type: 3}
