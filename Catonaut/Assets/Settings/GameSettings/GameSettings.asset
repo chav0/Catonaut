@@ -97,7 +97,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   FlashlightLerp: 0.92
-  FlashlightDamage: 0
+  FlashlightDamage: 2
   MaxSpeed: 4
   AimSpeedModificator: 0.5
   RotationSpeed: 3
@@ -106,8 +106,8 @@ MonoBehaviour:
   MaxPlayerHealth: 4
   WeaponChargeTime: 0.1
   WeaponCooldownTime: 0.2
-  ProjectileLifeTime: 2
+  ProjectileLifeTime: 1
   ProjectileRange: 20
   ProjectileRadius: 0.5
-  ProjectileDamage: 4
+  ProjectileDamage: 1
   DamageTicks: 40
