@@ -109,5 +109,5 @@ MonoBehaviour:
   ProjectileLifeTime: 1
   ProjectileRange: 20
   ProjectileRadius: 0.5
-  ProjectileDamage: 1
+  ProjectileDamage: 2
   DamageTicks: 40
