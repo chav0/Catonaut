@@ -21,8 +21,8 @@ MonoBehaviour:
   BotRotationLerp: 0.99
   BotRandomRotation: 10
   CameraRotationSpeed: 500
-  maxYOffset: 2.34
-  maxIntensity: 30
+  maxYOffset: 2.5
+  maxIntensity: 10
   maxRange: 8
   FlashlightRange:
     serializedVersion: 2
