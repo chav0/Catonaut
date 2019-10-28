@@ -28,9 +28,11 @@ namespace ECS
                 new FlashlightWeaponSystem(_settings), 
                 new WeaponSystem(_settings),
                 new ProjectileSystem(),
+                new MonsterAttackSystem(_settings),
                 new HitsSystem(_settings), 
                 new DamageZoneSystem(_settings),
                 
+                new MonsterMovementSystem(_settings), 
                 new MovementSystem(_settings),       
                 new BotBehaviourSystem(_settings),
                 

@@ -18,6 +18,18 @@ namespace Client.Updaters
                     body.SetAnimations(input.Speed);
                 }
             }
+
+            for (int i = 0; i < world.Monsters.Count; i++)
+            {
+                var entity = world.Monsters.EntityAt(i);
+                var monster = entity.Monster; 
+                var body = entity.Monster.Body; 
+                
+                if (body != null)
+                {
+                    body.SetAnimations(monster.Move ? .5f : 0f);
+                }
+            }
         }
     }
 }

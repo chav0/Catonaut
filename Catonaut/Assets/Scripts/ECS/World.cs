@@ -55,6 +55,7 @@ namespace ECS
             Weapons.DeleteAt(entity);
             Projectiles.DeleteAt(entity);
             DamageZones.DeleteAt(entity);
+            Monsters.DeleteAt(entity);
         }
 
         public void Dispose()
@@ -71,6 +72,7 @@ namespace ECS
             Weapons.Dispose();
             Projectiles.Dispose();
             DamageZones.Dispose();
+            Monsters.Dispose();
         }
 
         public Table<Player> Players = new Table<Player>();
@@ -85,6 +87,7 @@ namespace ECS
         public Table<Weapon> Weapons = new Table<Weapon>();
         public Table<Projectile> Projectiles = new Table<Projectile>();
         public Table<DamageZone> DamageZones = new Table<DamageZone>();
+        public Table<Monster> Monsters = new Table<Monster>();
         
         public Table<Shield> Shield = new Table<Shield>();
 

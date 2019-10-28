@@ -44,11 +44,12 @@ namespace ECS.Systems
                     {
                         var entity = entityRef.Entity; 
                         var player = entity.Player;
+                        var monster = entity.Monster; 
 
-                        if (player != null && entity != projectile.Owner)
+                        if ((player != null || monster != null && projectile.Owner.Player != null) && entity != projectile.Owner)
                         {
                             var health = entity.Health;
-                            health.CurrentHealth -= _gameSettings.ProjectileDamage;
+                            health.CurrentHealth -= projectile.Damage;
 
                             if (health.CurrentHealth < 0)
                                 health.CurrentHealth = 0;

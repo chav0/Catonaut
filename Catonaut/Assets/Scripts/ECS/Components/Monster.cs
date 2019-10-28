@@ -1,0 +1,14 @@
+﻿using Client.Objects;
+using UnityEngine;
+
+namespace ECS.Components
+{
+    public class Monster : Component
+    {
+        public int TargetPoint;
+        public uint TargetId; 
+        public MonsterObject Body;
+        public int NextAttackTick;
+        public bool Move; 
+    }
+}

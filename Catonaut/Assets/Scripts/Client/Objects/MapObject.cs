@@ -8,5 +8,6 @@ namespace Client.Objects
         public KeyObject[] Keys;
         public CapsuleObject Capsule;
         public DamageZoneObject[] DamageZoneObjects;
+        public MonsterObject[] Monsters; 
     }
 }

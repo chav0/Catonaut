@@ -121,6 +121,18 @@ namespace ECS
                 damageZoneHealth.MaxHealth = damageZoneBody.Health;
                 damageZoneBody.Entity = damageZoneEntity; 
             }
+
+            foreach (var monsterBody in map.Monsters)
+            {
+                var monsterEntity = world.CreateEntity();
+                var monster = monsterEntity.AddMonster();
+                var monsterHealth = monsterEntity.AddHealth();
+                monster.Body = monsterBody; 
+                monsterHealth.CurrentHealth = monsterBody.Health;
+                monsterHealth.MaxHealth = monsterBody.Health;
+                monsterBody.Entity = monsterEntity;
+                monsterBody.transform.position = monsterBody.Points[0].position; 
+            }
             
             return world;
         }

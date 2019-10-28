@@ -76,11 +76,9 @@ namespace Client.Objects
         {
             _deathColoring?.Kill();
             _deathColoring = DOTween.Sequence();
-            Debug.Log("HUI2");
             _deathColoring.AppendCallback(() => Flashlight.color = Color.red)
                 .InsertCallback(.3f, () =>
                 {
-                    Debug.Log("HUI");
                     Flashlight.color = Color.white;
                 })
                 .Play(); 

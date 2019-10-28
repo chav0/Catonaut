@@ -59,7 +59,8 @@ namespace ECS
         public DamageZone DamageZone;
 
         public Shield Shield;
-        
+
+        public Monster Monster; 
         
         public Player AddPlayer()
         {
@@ -163,6 +164,14 @@ namespace ECS
             Shield = shield; 
             _world.Shield.CreateAt(this, Shield);
             return Shield; 
+        }
+        
+        public Monster AddMonster()
+        {
+            var monster = new Monster();
+            Monster = monster; 
+            _world.Monsters.CreateAt(this, monster);
+            return monster; 
         }
     }
 }

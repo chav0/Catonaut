@@ -47,6 +47,15 @@ namespace Client
         public float ProjectileRange; 
         public float ProjectileRadius; 
         public int ProjectileDamage;
+
+        [Header("Monster")] 
+        public float MonsterSpeed; 
+        public float FollowMonsterRadius; 
+        public float AttackMonsterRadius; 
+        public int AttackIntervalTicks; 
+        public int MonsterDamage;
+        public int MonsterProjectileLifeTimeSeconds;
+        public float MonsterProjectileRange; 
         
         [Header("Common")]
         public int DamageTicks;
