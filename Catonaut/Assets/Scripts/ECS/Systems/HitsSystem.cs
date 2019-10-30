@@ -46,7 +46,7 @@ namespace ECS.Systems
                         var player = entity.Player;
                         var monster = entity.Monster; 
 
-                        if ((player != null && projectile.Owner.Monster != null || monster != null && projectile.Owner.Player != null) && entity != projectile.Owner)
+                        if ((player != null || monster != null && projectile.Owner.Player != null) && entity != projectile.Owner)
                         {
                             var health = entity.Health;
                             health.CurrentHealth -= projectile.Damage;
