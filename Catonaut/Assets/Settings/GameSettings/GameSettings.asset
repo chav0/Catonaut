@@ -99,16 +99,16 @@ MonoBehaviour:
   FlashlightLerp: 0.92
   FlashlightDamage: 1
   MaxSpeed: 4
-  AimSpeedModificator: 0.5
+  AimSpeedModificator: 0.3
   RotationSpeed: 3
-  KeyRadius: 1
+  KeyRadius: 0.5
   CapsuleRadius: 3
   MaxPlayerHealth: 6
   WeaponChargeTime: 0.1
   WeaponCooldownTime: 0.2
-  ProjectileLifeTime: 1
-  ProjectileRange: 20
-  ProjectileRadius: 0.5
+  ProjectileLifeTime: 0.3
+  ProjectileRange: 10
+  ProjectileRadius: 0.7
   ProjectileDamage: 3
   MonsterSpeed: 3
   FollowMonsterRadius: 5
