@@ -10,5 +10,6 @@ namespace ECS.Components
         public MonsterObject Body;
         public int NextAttackTick;
         public bool Move; 
+        public bool Attack; 
     }
 }

@@ -27,7 +27,7 @@ namespace Client.Updaters
                 
                 if (body != null)
                 {
-                    body.SetAnimations(monster.Move ? .5f : 0f);
+                    body.SetAnimations(monster.Move ? .5f : 0f, monster.Attack);
                 }
             }
         }

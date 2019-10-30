@@ -58,14 +58,9 @@ namespace ECS.Systems
                     return;
             }
 
-            World.Match.ItsVictory = player == World.ClientEntity;
+            World.Match.Result = player == World.ClientEntity ? MatchResult.Victory : MatchResult.Defeat;
             World.Match.State = MatchState.Complete; 
             World.Match.NextStateTick = -1;
-
-            if (World.Match.ItsVictory)
-                Debug.Log("IT'S VICTORY");
-            else 
-                Debug.Log("YOU ARE LOSER");
         }
     }
 }

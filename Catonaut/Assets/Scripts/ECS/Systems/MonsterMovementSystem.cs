@@ -27,7 +27,7 @@ namespace ECS.Systems
                 {
                     var targetTransform = World[monster.TargetId];
                     targetPoint = targetTransform.Transform.Position;
-                    if (_gameSettings.AttackMonsterRadius - (targetPoint - monster.Body.transform.position).magnitude < 1f)
+                    if (_gameSettings.AttackMonsterRadius - (targetPoint - monster.Body.transform.position).magnitude > 1f)
                         stop = true; 
                 }
                 else
@@ -47,8 +47,8 @@ namespace ECS.Systems
                 if (found)
                 {
                     var monsterPath = path.corners[1];
-                    var direction = (monsterPath - monster.Body.transform.position).normalized;
-                    var deltaMove = _gameSettings.MonsterSpeed * direction / TickRate;
+                    var direction = monsterPath - monster.Body.transform.position;
+                    var deltaMove = _gameSettings.MonsterSpeed * direction.normalized / TickRate;
 
                     if (stop)
                     {
@@ -57,8 +57,9 @@ namespace ECS.Systems
 
                     monster.Move = !stop;
                     monster.Body.transform.position += deltaMove;
-                    monster.Body.transform.rotation = Quaternion.Lerp(Quaternion.LookRotation(direction,
-                            Vector3.up), monster.Body.transform.rotation, _gameSettings.PlayerRotationLerp);
+
+                    monster.Body.transform.rotation = Quaternion.LookRotation(direction,
+                        Vector3.up);
                 }
             }
         }
