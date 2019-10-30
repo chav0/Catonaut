@@ -191,7 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 1
   Health: 8
-  Radius: 1
+  Radius: 0.6
   MeshRenderer: {fileID: 1557669283603349078}
   StandartColor:
     serializedVersion: 2

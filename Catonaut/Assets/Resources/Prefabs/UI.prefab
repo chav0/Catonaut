@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 7564399589876025190}
   - component: {fileID: 4953012820671139008}
   - component: {fileID: 1799917272395953012}
-  - component: {fileID: 1368957697}
+  - component: {fileID: 1582728684199566740}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -420,8 +420,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinRadius: 0
   MaxRadius: 0
-  ShotSound: {fileID: 1368957697}
---- !u!82 &1368957697
+  ShotSound: {fileID: 1582728684199566740}
+--- !u!82 &1582728684199566740
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
