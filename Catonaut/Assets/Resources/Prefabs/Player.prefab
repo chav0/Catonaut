@@ -1270,11 +1270,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5455703302484948454}
     m_Modifications:
-    - target: {fileID: 7986055458515234921, guid: be393f06ff0dfba4fbeaef61c56caedc,
-        type: 3}
-      propertyPath: m_Name
-      value: LaserAim
-      objectReference: {fileID: 0}
     - target: {fileID: 7989042690692167229, guid: be393f06ff0dfba4fbeaef61c56caedc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1329,6 +1324,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986055458515234921, guid: be393f06ff0dfba4fbeaef61c56caedc,
+        type: 3}
+      propertyPath: m_Name
+      value: LaserAim
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be393f06ff0dfba4fbeaef61c56caedc, type: 3}
