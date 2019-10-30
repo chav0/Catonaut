@@ -114,7 +114,7 @@ namespace ECS.Systems
                 if (!bot.Input.Aimed)
                     bot.Input.Direction = inputDirection; 
                 
-                bot.Input.Speed = bot.Input.Movement.sqrMagnitude > 0.25f ? 0.35f : 0f; 
+                bot.Input.Speed = bot.Input.Movement.sqrMagnitude > 0.25f ? 0.25f : 0f; 
             }
         }
 

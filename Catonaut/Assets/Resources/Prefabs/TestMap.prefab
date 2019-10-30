@@ -2375,6 +2375,10 @@ MonoBehaviour:
   Damage: 1
   Health: 4
   Radius: 1.5
+  MeshRenderer: {fileID: 0}
+  StandartColor:
+    serializedVersion: 2
+    rgba: 0
 --- !u!1 &4213698297590672644
 GameObject:
   m_ObjectHideFlags: 0
@@ -4573,11 +4577,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 1ce612a4443fa45c9a56c48517cad35f,
-        type: 3}
-      propertyPath: m_Name
-      value: vhod (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 3173229367221104648, guid: 1ce612a4443fa45c9a56c48517cad35f,
         type: 3}
       propertyPath: m_LocalRotation.y
@@ -4587,6 +4586,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 1ce612a4443fa45c9a56c48517cad35f,
+        type: 3}
+      propertyPath: m_Name
+      value: vhod (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ce612a4443fa45c9a56c48517cad35f, type: 3}
@@ -4609,11 +4613,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 920865433202009425}
     m_Modifications:
-    - target: {fileID: 2976336481546651712, guid: b8f74c416a6f9e24496268c16b6c2930,
+    - target: {fileID: 3383682064356184745, guid: b8f74c416a6f9e24496268c16b6c2930,
         type: 3}
-      propertyPath: m_Name
-      value: Monster
+      propertyPath: Points.Array.size
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3383682064356184745, guid: b8f74c416a6f9e24496268c16b6c2930,
+        type: 3}
+      propertyPath: FirstPoint
+      value: 
+      objectReference: {fileID: 2543261322384314693}
+    - target: {fileID: 3383682064356184745, guid: b8f74c416a6f9e24496268c16b6c2930,
+        type: 3}
+      propertyPath: SecondPoint
+      value: 
+      objectReference: {fileID: 6416707901129323643}
+    - target: {fileID: 3383682064356184745, guid: b8f74c416a6f9e24496268c16b6c2930,
+        type: 3}
+      propertyPath: Health
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3383682064356184745, guid: b8f74c416a6f9e24496268c16b6c2930,
+        type: 3}
+      propertyPath: Points.Array.data[0]
+      value: 
+      objectReference: {fileID: 2543261322384314693}
+    - target: {fileID: 3383682064356184745, guid: b8f74c416a6f9e24496268c16b6c2930,
+        type: 3}
+      propertyPath: Points.Array.data[1]
+      value: 
+      objectReference: {fileID: 6416707901129323643}
+    - target: {fileID: 3383682064356184745, guid: b8f74c416a6f9e24496268c16b6c2930,
+        type: 3}
+      propertyPath: Points.Array.data[2]
+      value: 
+      objectReference: {fileID: 1605837850225986558}
     - target: {fileID: 2976336481546651724, guid: b8f74c416a6f9e24496268c16b6c2930,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4669,41 +4703,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3383682064356184745, guid: b8f74c416a6f9e24496268c16b6c2930,
+    - target: {fileID: 2976336481546651712, guid: b8f74c416a6f9e24496268c16b6c2930,
         type: 3}
-      propertyPath: Points.Array.size
-      value: 3
+      propertyPath: m_Name
+      value: Monster
       objectReference: {fileID: 0}
-    - target: {fileID: 3383682064356184745, guid: b8f74c416a6f9e24496268c16b6c2930,
-        type: 3}
-      propertyPath: FirstPoint
-      value: 
-      objectReference: {fileID: 2543261322384314693}
-    - target: {fileID: 3383682064356184745, guid: b8f74c416a6f9e24496268c16b6c2930,
-        type: 3}
-      propertyPath: SecondPoint
-      value: 
-      objectReference: {fileID: 6416707901129323643}
-    - target: {fileID: 3383682064356184745, guid: b8f74c416a6f9e24496268c16b6c2930,
-        type: 3}
-      propertyPath: Health
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3383682064356184745, guid: b8f74c416a6f9e24496268c16b6c2930,
-        type: 3}
-      propertyPath: Points.Array.data[0]
-      value: 
-      objectReference: {fileID: 2543261322384314693}
-    - target: {fileID: 3383682064356184745, guid: b8f74c416a6f9e24496268c16b6c2930,
-        type: 3}
-      propertyPath: Points.Array.data[1]
-      value: 
-      objectReference: {fileID: 6416707901129323643}
-    - target: {fileID: 3383682064356184745, guid: b8f74c416a6f9e24496268c16b6c2930,
-        type: 3}
-      propertyPath: Points.Array.data[2]
-      value: 
-      objectReference: {fileID: 1605837850225986558}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8f74c416a6f9e24496268c16b6c2930, type: 3}
 --- !u!4 &6310034058840533614 stripped
