@@ -114,7 +114,7 @@ namespace ECS.Systems
                 if (!bot.Input.Aimed)
                     bot.Input.Direction = inputDirection; 
                 
-                bot.Input.Speed = bot.Input.Movement.sqrMagnitude > 0.25f ? 0.25f : 0f; 
+                bot.Input.Speed = bot.Input.Movement.sqrMagnitude > 0.25f ? 0.3f : 0f; 
             }
         }
 
@@ -122,7 +122,7 @@ namespace ECS.Systems
         {
             var player = World.ClientEntity;
             var distance = player.Transform.Position - bot.Transform.Position; 
-            if (distance.magnitude < _gameSettings.ProjectileRange / 3f)
+            if (distance.magnitude < _gameSettings.ProjectileRange / 1.5f)
             {
                 _randomRotation = Vector3.Lerp(_randomRotation, _randomRotation + new Vector3(0f, Random.Range(-10f, 10f),  0f), 0.1f);
                 var randomDirection = (Quaternion.Euler(_randomRotation) * distance); 
