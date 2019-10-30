@@ -17,7 +17,7 @@ namespace ECS.Systems
         public BotBehaviourSystem(GameSettings settings)
         {
             _gameSettings = settings;
-            _randomRotation = new Vector3(0f, Random.Range(-8f, 8f),  0f); 
+            _randomRotation = new Vector3(0f, Random.Range(-_gameSettings.BotRandomRotation, _gameSettings.BotRandomRotation),  0f); 
         }
         
         public override void Execute()
