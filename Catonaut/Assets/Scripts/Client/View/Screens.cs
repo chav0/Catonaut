@@ -6,5 +6,7 @@ namespace Client.View
     public class Screens : MonoBehaviour
     {
         public BattleHudWidget BattleHud; 
+        public LobbyWidget Lobby;
+        public ResultWidget Result; 
     }
 }

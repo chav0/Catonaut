@@ -23,7 +23,7 @@ namespace Client.View
             Camera = camera;
             Screens = screens; 
             
-            CurrentState = new LoadingViewState();
+            CurrentState = new LobbyViewState();
             CurrentState.Context = this; 
             CurrentState.OnEnter();
         }

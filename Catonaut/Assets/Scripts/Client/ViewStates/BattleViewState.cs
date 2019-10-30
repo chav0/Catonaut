@@ -1,5 +1,7 @@
 ﻿using Client.Updaters;
+using ECS.Components;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Client.ViewStates
 {
@@ -12,6 +14,10 @@ namespace Client.ViewStates
 
         public override void OnEnter()
         {
+            Context.Screens.BattleHud.gameObject.SetActive(true);
+            Context.Screens.Lobby.gameObject.SetActive(false);
+            Context.Screens.Result.gameObject.SetActive(false);
+            
             _cameraUpdater = new CameraUpdater(Context.Camera, Context.AppModel.Settings);
             _playerUpdater = new PlayerUpdater();
             _fxUpdater = new FxUpdater(Context.Resources);
@@ -45,10 +51,17 @@ namespace Client.ViewStates
 
         public override void PostModelUpdate()
         {
-            _playerUpdater.Update(Context.AppModel.World);
-            _cameraUpdater.Update(Context.AppModel.World);
-            _fxUpdater.Update(Context.AppModel.World);
-            _healthBarUpdater.Update(Context.AppModel.World);
+            if (Context.AppModel.World.Match.Result == MatchResult.None)
+            {
+                _playerUpdater.Update(Context.AppModel.World);
+                _cameraUpdater.Update(Context.AppModel.World);
+                _fxUpdater.Update(Context.AppModel.World);
+                _healthBarUpdater.Update(Context.AppModel.World);
+            }
+            else
+            {
+                SetState(new ResultViewState());
+            }
         }
              
         private static Vector2 FillVectorByKeys(Vector2 moveStick, ref float speed, ref bool hasStick)

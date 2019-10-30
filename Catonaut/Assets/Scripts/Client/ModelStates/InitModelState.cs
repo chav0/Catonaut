@@ -9,7 +9,7 @@ namespace Client.ModelStates
         
         public override void Update(double currentTime)
         {
-            throw new System.NotImplementedException();
+
         }
     }
 }

@@ -2,6 +2,7 @@
 using Client.Model;
 using Client.Scene;
 using ECS;
+using ECS.Components;
 using UnityEngine;
 
 namespace Client.ModelStates
@@ -35,12 +36,15 @@ namespace Client.ModelStates
         
         public override void Update(double currentTime)
         {
-            var currentTick = (int) ((currentTime - _startTime) * TickRate) + 1; 
+            if (World.Match.Result != MatchResult.None) 
+                return;
             
+            var currentTick = (int) ((currentTime - _startTime) * TickRate) + 1;
+
             while (_world.Tick < currentTick)
             {
                 _gameLogic.Simulate(_input);
-                _input = null; 
+                _input = null;
             }
         }
 

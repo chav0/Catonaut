@@ -44,7 +44,7 @@ namespace ECS.Systems
                 bool found = NavMesh.CalculatePath(monster.Body.transform.position, targetPoint,
                     NavMesh.AllAreas, path);
 
-                if (found)
+                if (found && path.corners.Length > 1)
                 {
                     var monsterPath = path.corners[1];
                     var direction = monsterPath - monster.Body.transform.position;
