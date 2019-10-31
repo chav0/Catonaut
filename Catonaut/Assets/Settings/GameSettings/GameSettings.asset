@@ -21,9 +21,9 @@ MonoBehaviour:
   BotRotationLerp: 0.8
   BotRandomRotation: 10
   CameraRotationSpeed: 500
-  maxYOffset: 2.5
-  maxIntensity: 10
-  maxRange: 8
+  maxYOffset: 3
+  maxIntensity: 29
+  maxRange: 10
   FlashlightRange:
     serializedVersion: 2
     m_Curve:
@@ -110,11 +110,11 @@ MonoBehaviour:
   ProjectileRange: 10
   ProjectileRadius: 0.7
   ProjectileDamage: 3
-  MonsterSpeed: 0.5
-  FollowMonsterRadius: 5
-  AttackMonsterRadius: 3
-  AttackIntervalTicks: 20
-  MonsterDamage: 1
+  MonsterSpeed: 0.4
+  FollowMonsterRadius: 7
+  AttackMonsterRadius: 7
+  AttackIntervalTicks: 80
+  MonsterDamage: 2
   MonsterProjectileLifeTimeSeconds: 1
-  MonsterProjectileRange: 3
+  MonsterProjectileRange: 7
   DamageTicks: 20

@@ -49,7 +49,7 @@ namespace ECS.Systems
                         projectile.Position = monster.Body.transform.position + monster.Body.transform.rotation * new Vector3(0f, 0.25f, 0.25f); 
                         projectile.Direction =  monster.Body.transform.rotation * Vector3.forward;
                         projectile.RemainingLifetime = (int) (_gameSettings.MonsterProjectileLifeTimeSeconds * TickRate) + World.Tick;
-                        projectile.SpeedPerTick =  (_gameSettings.MonsterProjectileRange / (int) (_gameSettings.ProjectileLifeTime * TickRate));
+                        projectile.SpeedPerTick =  (_gameSettings.MonsterProjectileRange / (int) (_gameSettings.MonsterProjectileLifeTimeSeconds * TickRate));
                         projectile.Damage = _gameSettings.MonsterDamage; 
                         projectile.Owner = monsterEntity; 
                     } 
