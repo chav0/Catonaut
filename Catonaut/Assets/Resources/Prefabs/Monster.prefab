@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 3383682064356184745}
   - component: {fileID: 8423599643810925014}
   - component: {fileID: 25873482821522743}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Monster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,8 @@ MonoBehaviour:
   Animator: {fileID: 4308936812054827942}
   WalkSound: {fileID: 25873482821522743}
   Points: []
-  Health: 9
+  Health: 1000
+  Shield: {fileID: 0}
   MeshRenderer: {fileID: 2971044432750535173}
   StandartColor:
     serializedVersion: 2
@@ -316,8 +317,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.7
-  m_Center: {x: 0.0078175645, y: 0.43, z: -0.021251136}
+  m_Radius: 0.48699117
+  m_Center: {x: 0, y: 0.19817632, z: -0.0034271479}
 --- !u!82 &25873482821522743
 AudioSource:
   m_ObjectHideFlags: 0
@@ -859,7 +860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8248510927603507496}
   - component: {fileID: 4792823439904319709}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

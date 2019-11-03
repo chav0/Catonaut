@@ -8,7 +8,7 @@ namespace ECS.Systems
     public class HitsSystem : SystemBase
     {
         private readonly GameSettings _gameSettings; 
-        private readonly RaycastHit[] _results = new RaycastHit[50];
+        private readonly RaycastHit[] _results = new RaycastHit[1000];
     
         public HitsSystem(GameSettings settings)
         {
@@ -27,10 +27,11 @@ namespace ECS.Systems
                 
                 var count = UnityEngine.Physics.RaycastNonAlloc(projectile.Position, projectile.Direction, _results,
                     projectile.SpeedPerTick, Layers.GeometryMask | Layers.MovementMask | Layers.MonstersMask);
-            
+               
                 if (count == 0)
                     return;
 
+                Debug.Log(count);
                 foreach (var result in _results)
                 {
                     var collider = result.collider;
@@ -40,11 +41,15 @@ namespace ECS.Systems
                     
                     var entityRef = collider.gameObject.GetComponent<EntityRefObject>();
                     
+                    Debug.Log("entityRef : " + (entityRef != null));
+                    
                     if(entityRef != null)
                     {
                         var entity = entityRef.Entity; 
                         var player = entity.Player;
                         var monster = entity.Monster; 
+                        
+                        Debug.Log("monster : " + (monster != null));
 
                         if ((player != null || monster != null && projectile.Owner.Player != null) && entity != projectile.Owner)
                         {

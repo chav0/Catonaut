@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8980181102744412893}
   - component: {fileID: 1677653349753948840}
   - component: {fileID: 4328426070329795206}
-  - component: {fileID: 2365553168205835754}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -81,19 +80,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2365553168205835754
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5818671864151544703}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9181688676475370229
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,10 +182,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 890425802269540727}
     m_Modifications:
-    - target: {fileID: 1277154222277586, guid: 5e7fa990843b34e4c9c0c3fcddc0f984, type: 3}
-      propertyPath: m_Name
-      value: TrailEmitter
-      objectReference: {fileID: 0}
     - target: {fileID: 4577984363349534, guid: 5e7fa990843b34e4c9c0c3fcddc0f984, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.208
@@ -243,6 +225,10 @@ PrefabInstance:
     - target: {fileID: 4577984363349534, guid: 5e7fa990843b34e4c9c0c3fcddc0f984, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277154222277586, guid: 5e7fa990843b34e4c9c0c3fcddc0f984, type: 3}
+      propertyPath: m_Name
+      value: TrailEmitter
       objectReference: {fileID: 0}
     - target: {fileID: 198906892391449948, guid: 5e7fa990843b34e4c9c0c3fcddc0f984,
         type: 3}
