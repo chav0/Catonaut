@@ -38,21 +38,16 @@ namespace Client.Objects
         {
             _deathColoring?.Kill();
             _deathColoring = DOTween.Sequence();
-            _deathColoring.AppendCallback(() => MeshRenderer.material.SetColor(ColorCached, Color.red))
-                .InsertCallback(0f, () =>
+            _deathColoring.AppendCallback(() =>
+                {
+                    MeshRenderer.material.SetColor(ColorCached, Color.red);
+                    Flashlight.intensity = 3;
+                    Flashlight.color = Color.red;
+                })
+                .InsertCallback(.3f, () =>
                 {
                     MeshRenderer.material.SetColor(ColorCached, StandartColor);
-                })
-                .Play(); 
-            _deathColoring.AppendCallback(() => Flashlight.intensity = 3)
-                .InsertCallback(10f, () =>
-                {
                     Flashlight.intensity = 1;
-                })
-                .Play(); 
-            _deathColoring.AppendCallback(() => Flashlight.color = Color.red)
-                .InsertCallback(10f, () =>
-                {
                     Flashlight.color = Color.white;
                 })
                 .Play(); 
