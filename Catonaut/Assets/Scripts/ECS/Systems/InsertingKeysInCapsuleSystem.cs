@@ -24,7 +24,8 @@ namespace ECS.Systems
                 var capsuleBody = capsule.Body;
                 var capsuleInventory = entity.Inventory; 
                 
-                var overlaps = PhysicsUtils.OverlapSphere(capsuleBody.transform.position, _gameSettings.CapsuleRadius, Layers.MovementMask);
+                var overlaps = PhysicsUtils.OverlapSphere(capsuleBody.transform.position, _gameSettings.CapsuleRadius, 
+                    Layers.MovementMask);
 
                 foreach (var entityOverlap in overlaps)
                 {

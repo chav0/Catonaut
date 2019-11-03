@@ -8,7 +8,7 @@ namespace ECS.Systems
     public class HitsSystem : SystemBase
     {
         private readonly GameSettings _gameSettings; 
-        private readonly RaycastHit[] _results = new RaycastHit[1000];
+        private readonly RaycastHit[] _results = new RaycastHit[5];
     
         public HitsSystem(GameSettings settings)
         {
@@ -25,56 +25,40 @@ namespace ECS.Systems
                 if(projectile.IsDead)
                     continue;
                 
-                var count = UnityEngine.Physics.RaycastNonAlloc(projectile.Position, projectile.Direction, _results,
-                    projectile.SpeedPerTick, Layers.GeometryMask | Layers.MovementMask | Layers.MonstersMask);
-               
-                if (count == 0)
-                    return;
+                var overlaps = PhysicsUtils.OverlapSphere(projectile.Position, _gameSettings.ProjectileRadius,
+                    Layers.GeometryMask | Layers.MovementMask | Layers.MonstersMask);
 
-                Debug.Log(count);
-                foreach (var result in _results)
+                foreach (var entity in overlaps)
                 {
-                    var collider = result.collider;
-                    
-                    if(collider == null)
-                        continue;
-                    
-                    var entityRef = collider.gameObject.GetComponent<EntityRefObject>();
-                    
-                    Debug.Log("entityRef : " + (entityRef != null));
-                    
-                    if(entityRef != null)
-                    {
-                        var entity = entityRef.Entity; 
-                        var player = entity.Player;
-                        var monster = entity.Monster; 
-                        
-                        Debug.Log("monster : " + (monster != null));
+                    var player = entity.Player;
+                    var monster = entity.Monster;
 
-                        if ((player != null || monster != null && projectile.Owner.Player != null) && entity != projectile.Owner)
+                    if ((player != null || monster != null && projectile.Owner.Player != null) &&
+                        entity != projectile.Owner)
+                    {
+                        var health = entity.Health;
+                        var coef = 1f;
+
+                        if (monster != null && monster.HaveShield)
                         {
-                            var health = entity.Health;
-                            var coef = 1f;
-
-                            if (monster != null && monster.HaveShield)
-                            {
-                                coef = monster.DamageCoef; 
-                            }
-                            
-                            health.CurrentHealth -= (int) (projectile.Damage * coef);
-
-                            if (health.CurrentHealth < 0)
-                                health.CurrentHealth = 0;
-
-                            Debug.Log("Add damage " + _gameSettings.ProjectileDamage);
-                            projectile.IsDead = true;
+                            coef = monster.DamageCoef;
                         }
-                    }
-                    else
-                    {
+
+                        health.CurrentHealth -= (int) (projectile.Damage * coef);
+
+                        if (health.CurrentHealth < 0)
+                            health.CurrentHealth = 0;
+
+                        Debug.Log("Add damage " + _gameSettings.ProjectileDamage);
                         projectile.IsDead = true;
                     }
                 }
+
+                var count = UnityEngine.Physics.RaycastNonAlloc(projectile.Position, projectile.Direction, _results,
+                    projectile.SpeedPerTick, Layers.GeometryMask | Layers.MovementMask | Layers.MonstersMask);
+
+                if (count > 0)
+                    projectile.IsDead = true;
             }
         }
     }

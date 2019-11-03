@@ -13,7 +13,6 @@ namespace ECS.Physics
         {
             Entities.Clear();
             var count = UnityEngine.Physics.OverlapSphereNonAlloc(center, radius, OverlapBuffer, layerMask);
-            
             for (int i = 0; i < count; i++)
             {
                 var collider = OverlapBuffer[i];

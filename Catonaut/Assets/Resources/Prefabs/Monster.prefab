@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 83071401723240730}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: tendril.left2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8671349802799677930}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BigBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4993020544204529553}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: tendril.right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 613311326864792449}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: tail2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 297007819679912161}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: tendril.right3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4536727410372561162}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: leg left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3084654807055542901}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: tendril.left3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2715334475760710981}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: leg front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ MonoBehaviour:
   Animator: {fileID: 4308936812054827942}
   WalkSound: {fileID: 25873482821522743}
   Points: []
-  Health: 1000
+  Health: 6
   Shield: {fileID: 0}
   MeshRenderer: {fileID: 2971044432750535173}
   StandartColor:
@@ -317,8 +317,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.48699117
-  m_Center: {x: 0, y: 0.19817632, z: -0.0034271479}
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.32, z: -0.0034271479}
 --- !u!82 &25873482821522743
 AudioSource:
   m_ObjectHideFlags: 0
@@ -424,7 +424,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3546531839860022961}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: leg front_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,7 +454,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2703022511707644709}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: tendril.left3_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -484,7 +484,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3403480914827643670}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: tendril.right2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7012975108469844149}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: leg left_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,7 +545,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1206633126317440776}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: tail3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -577,7 +577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8113995146110909752}
   - component: {fileID: 2971044432750535173}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -672,7 +672,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 406406664032807533}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: tendril.right3_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -702,7 +702,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8102473866574310123}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: leg right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -733,7 +733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2420501005821287365}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -764,7 +764,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5481280685126147258}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: leg right_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -794,7 +794,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7286713201576422770}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: tail3_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -824,7 +824,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7068917667975412574}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -860,7 +860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8248510927603507496}
   - component: {fileID: 4792823439904319709}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -951,7 +951,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5886268995397478257}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: tendril.left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -983,7 +983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5726233028547598956}
   - component: {fileID: 4308936812054827942}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: monster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1034,7 +1034,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6040561616581628069}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}

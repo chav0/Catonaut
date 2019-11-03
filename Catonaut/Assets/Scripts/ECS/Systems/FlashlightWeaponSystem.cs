@@ -21,7 +21,8 @@ namespace ECS.Systems
                 
                 var flashlight = entity.Flashlight;
                 var transform = entity.Transform;
-                var overlaps = PhysicsUtils.OverlapSphere(transform.Position, flashlight.Range/4, Layers.FlashlightEnemysMask | Layers.MonstersMask);
+                var overlaps = PhysicsUtils.OverlapSphere(transform.Position, flashlight.Range/4, 
+                    Layers.FlashlightEnemysMask | Layers.MonstersMask);
 
                 foreach (var overlap in overlaps)
                 {

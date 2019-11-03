@@ -103,13 +103,13 @@ MonoBehaviour:
   RotationSpeed: 3
   KeyRadius: 0.5
   CapsuleRadius: 3
-  MaxPlayerHealth: 6
+  MaxPlayerHealth: 4
   WeaponChargeTime: 0.1
   WeaponCooldownTime: 0.2
-  ProjectileLifeTime: 0.4
+  ProjectileLifeTime: 0.5
   ProjectileRange: 10
-  ProjectileRadius: 1
-  ProjectileDamage: 3
+  ProjectileRadius: 0.5
+  ProjectileDamage: 2
   MonsterSpeed: 0.3
   FollowMonsterRadius: 7
   AttackMonsterRadius: 7
