@@ -10,7 +10,8 @@ namespace Client.ViewStates
         private CameraUpdater _cameraUpdater;
         private PlayerUpdater _playerUpdater;
         private FxUpdater _fxUpdater;
-        private HealthBarUpdater _healthBarUpdater; 
+        private HealthBarUpdater _healthBarUpdater;
+        private HudUpdater _hudUpdater; 
 
         public override void OnEnter()
         {
@@ -22,6 +23,7 @@ namespace Client.ViewStates
             _playerUpdater = new PlayerUpdater();
             _fxUpdater = new FxUpdater(Context.Resources);
             _healthBarUpdater = new HealthBarUpdater();
+            _hudUpdater = new HudUpdater(Context.Screens.BattleHud);
         }
         
         public override void PreModelUpdate()
@@ -57,6 +59,7 @@ namespace Client.ViewStates
                 _cameraUpdater.Update(Context.AppModel.World);
                 _fxUpdater.Update(Context.AppModel.World);
                 _healthBarUpdater.Update(Context.AppModel.World);
+                _hudUpdater.Update(Context.AppModel.World);
             }
             else
             {
