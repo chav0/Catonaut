@@ -21,19 +21,27 @@ namespace ECS.Systems
                 
                 var flashlight = entity.Flashlight;
                 var transform = entity.Transform;
-                var overlaps = PhysicsUtils.OverlapSphere(transform.Position, flashlight.Range/4, Layers.FlashlightEnemysMask);
+                var overlaps = PhysicsUtils.OverlapSphere(transform.Position, flashlight.Range/4, Layers.FlashlightEnemysMask | Layers.MonstersMask);
 
                 foreach (var overlap in overlaps)
                 {
                     var health = overlap.Health;
-                    if(health == null)
-                        continue;
-
-                    if (World.Tick % _gameSettings.DamageTicks == 0)
+                    if(health != null)
                     {
-                        health.CurrentHealth -= _gameSettings.FlashlightDamage;
-                        if (health.CurrentHealth < 0) 
-                            health.CurrentHealth = 0;
+                        if (World.Tick % _gameSettings.DamageTicks == 0)
+                        {
+                            health.CurrentHealth -= _gameSettings.FlashlightDamage;
+                            if (health.CurrentHealth < 0)
+                                health.CurrentHealth = 0;
+                        }
+                    }
+
+                    var monster = overlap.Monster;
+                    if (monster != null)
+                    {
+                        monster.HaveShield = false;
+                        monster.DamageCoef = 1f; 
+                        monster.Body.Shield.gameObject.SetActive(false);
                     }
                 }
             }

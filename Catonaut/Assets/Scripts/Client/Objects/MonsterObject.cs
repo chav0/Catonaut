@@ -8,7 +8,8 @@ namespace Client.Objects
         public Animator Animator;
         public AudioSource WalkSound;
         public Transform[] Points;
-        public int Health; 
+        public int Health;
+        public ShieldObject Shield; 
         private static readonly int BlendSpeed = Animator.StringToHash("BlendSpeed");
         private static readonly int Attack = Animator.StringToHash("Attack");
         

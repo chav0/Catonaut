@@ -26,7 +26,7 @@ namespace ECS.Systems
                     continue;
                 
                 var count = UnityEngine.Physics.RaycastNonAlloc(projectile.Position, projectile.Direction, _results,
-                    projectile.SpeedPerTick, Layers.GeometryMask | Layers.MovementMask);
+                    projectile.SpeedPerTick, Layers.GeometryMask | Layers.MovementMask | Layers.MonstersMask);
             
                 if (count == 0)
                     return;
@@ -49,7 +49,14 @@ namespace ECS.Systems
                         if ((player != null || monster != null && projectile.Owner.Player != null) && entity != projectile.Owner)
                         {
                             var health = entity.Health;
-                            health.CurrentHealth -= projectile.Damage;
+                            var coef = 1f;
+
+                            if (monster != null && monster.HaveShield)
+                            {
+                                coef = monster.DamageCoef; 
+                            }
+                            
+                            health.CurrentHealth -= (int) (projectile.Damage * coef);
 
                             if (health.CurrentHealth < 0)
                                 health.CurrentHealth = 0;

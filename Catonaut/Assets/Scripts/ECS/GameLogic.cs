@@ -131,7 +131,17 @@ namespace ECS
                 monsterHealth.CurrentHealth = monsterBody.Health;
                 monsterHealth.MaxHealth = monsterBody.Health;
                 monsterBody.Entity = monsterEntity;
-                monsterBody.transform.position = monsterBody.Points[0].position; 
+                monsterBody.transform.position = monsterBody.Points[0].position;
+
+                if (monsterBody.Shield != null)
+                {
+                    monster.HaveShield = true;
+                    monster.DamageCoef = monsterBody.Shield.Coef; 
+                }
+                else
+                {
+                    monster.DamageCoef = 1f; 
+                }
             }
             
             return world;
