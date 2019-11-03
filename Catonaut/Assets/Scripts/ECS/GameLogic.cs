@@ -136,7 +136,8 @@ namespace ECS
                 if (monsterBody.Shield != null)
                 {
                     monster.HaveShield = true;
-                    monster.DamageCoef = monsterBody.Shield.Coef; 
+                    monster.DamageCoef = monsterBody.Shield.Coef;
+                    monster.CurrentShieldHealth = monsterBody.Shield.Health; 
                 }
                 else
                 {

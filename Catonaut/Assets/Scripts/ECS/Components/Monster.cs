@@ -12,6 +12,7 @@ namespace ECS.Components
         public bool Move; 
         public bool Attack;
         public bool HaveShield;
-        public float DamageCoef; 
+        public float DamageCoef;
+        public int CurrentShieldHealth; 
     }
 }

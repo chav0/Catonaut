@@ -27,11 +27,16 @@ namespace ECS.Systems
                 foreach (var overlap in overlaps)
                 {
                     var monster = overlap.Monster;
-                    if (monster != null && monster.HaveShield)
+                    if (monster != null && monster.HaveShield && World.Tick % _gameSettings.DamageTicks == 0)
                     {
-                        monster.HaveShield = false;
-                        monster.DamageCoef = 1f; 
-                        monster.Body.Shield.gameObject.SetActive(false);
+                        monster.CurrentShieldHealth -= 1; 
+                        
+                        if(monster.CurrentShieldHealth == 0)
+                        {
+                            monster.HaveShield = false;
+                            monster.DamageCoef = 1f;
+                            monster.Body.Shield.gameObject.SetActive(false);
+                        }
                     }
                     
                     if(monster != null)
