@@ -106,15 +106,15 @@ MonoBehaviour:
   MaxPlayerHealth: 6
   WeaponChargeTime: 0.1
   WeaponCooldownTime: 0.2
-  ProjectileLifeTime: 0.3
+  ProjectileLifeTime: 0.4
   ProjectileRange: 10
-  ProjectileRadius: 0.7
+  ProjectileRadius: 1
   ProjectileDamage: 3
-  MonsterSpeed: 0.4
+  MonsterSpeed: 0.3
   FollowMonsterRadius: 7
   AttackMonsterRadius: 7
-  AttackIntervalTicks: 80
-  MonsterDamage: 2
-  MonsterProjectileLifeTimeSeconds: 1
+  AttackIntervalTicks: 120
+  MonsterDamage: 1
+  MonsterProjectileLifeTimeSeconds: 3
   MonsterProjectileRange: 7
   DamageTicks: 20

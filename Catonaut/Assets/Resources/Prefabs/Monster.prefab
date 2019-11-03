@@ -316,8 +316,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.50942683
-  m_Center: {x: 0.0078175645, y: 0.63554525, z: -0.021251136}
+  m_Radius: 0.7
+  m_Center: {x: 0.0078175645, y: 0.43, z: -0.021251136}
 --- !u!82 &25873482821522743
 AudioSource:
   m_ObjectHideFlags: 0
@@ -873,13 +873,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8703743090534080954}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.185, z: 0.345}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 2.169, z: 0.043}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2976336481546651724}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &4792823439904319709
 Light:
   m_ObjectHideFlags: 0
@@ -889,11 +889,11 @@ Light:
   m_GameObject: {fileID: 8703743090534080954}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 2
+  m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 1
+  m_Intensity: 100
+  m_Range: 2
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -998,7 +998,7 @@ Transform:
   m_GameObject: {fileID: 8731621239407683711}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 8113995146110909752}
   - {fileID: 2420501005821287365}

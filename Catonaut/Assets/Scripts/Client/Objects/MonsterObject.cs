@@ -42,13 +42,13 @@ namespace Client.Objects
             _deathColoring.AppendCallback(() =>
                 {
                     MeshRenderer.material.SetColor(ColorCached, Color.red);
-                    Flashlight.intensity = 10;
+                    Flashlight.intensity = 100;
                     Flashlight.color = Color.red;
                 })
                 .InsertCallback(.3f, () =>
                 {
                     MeshRenderer.material.SetColor(ColorCached, StandartColor);
-                    Flashlight.intensity = 1;
+                    Flashlight.intensity = 50;
                     Flashlight.color = Color.white;
                 })
                 .Play(); 
