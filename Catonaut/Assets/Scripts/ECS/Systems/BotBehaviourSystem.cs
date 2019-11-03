@@ -109,7 +109,7 @@ namespace ECS.Systems
                 var botPath = path.corners[1];
                 var direction = (bot.Transform.Position - botPath).normalized;
                 var inputDirection = new Vector2(-direction.x, -direction.z);
-                bot.Input.Movement = inputDirection;
+                bot.Input.Movement = inputDirection + new Vector2(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
                 
                 if (!bot.Input.Aimed)
                     bot.Input.Direction = inputDirection; 
@@ -121,8 +121,23 @@ namespace ECS.Systems
         private void Shoot(Entity bot)
         {
             var player = World.ClientEntity;
-            var distance = player.Transform.Position - bot.Transform.Position; 
-            if (distance.magnitude < _gameSettings.ProjectileRange / 1.5f)
+            var distance = player.Transform.Position - bot.Transform.Position;
+            var distanceMagnitude = distance.magnitude; 
+
+            for (int i = 0; i < World.Monsters.Count; i++)
+            {
+                var monsterEntity = World.Monsters.EntityAt(i);
+                var monstersDistance = monsterEntity.Monster.Body.transform.position - bot.Transform.Position;
+                var monsterDistanceMagnitude = monstersDistance.magnitude; 
+
+                if (distanceMagnitude > monsterDistanceMagnitude)
+                {
+                    distance = monstersDistance;
+                    distanceMagnitude = monsterDistanceMagnitude; 
+                }
+            }
+            
+            if (distanceMagnitude < _gameSettings.ProjectileRange / 1.5f)
             {
                 _randomRotation = Vector3.Lerp(_randomRotation, _randomRotation + new Vector3(0f, Random.Range(-10f, 10f),  0f), 0.1f);
                 var randomDirection = (Quaternion.Euler(_randomRotation) * distance); 
