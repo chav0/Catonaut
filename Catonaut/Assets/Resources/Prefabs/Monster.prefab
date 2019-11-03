@@ -300,6 +300,11 @@ MonoBehaviour:
   WalkSound: {fileID: 25873482821522743}
   Points: []
   Health: 9
+  MeshRenderer: {fileID: 2971044432750535173}
+  StandartColor:
+    serializedVersion: 2
+    rgba: 2181169
+  Flashlight: {fileID: 4792823439904319709}
 --- !u!135 &8423599643810925014
 SphereCollider:
   m_ObjectHideFlags: 0
