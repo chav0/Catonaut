@@ -18,6 +18,9 @@ namespace ECS.Systems
             {
                 var monsterEntity = World.Monsters.EntityAt(i);
                 var monster = monsterEntity.Monster; 
+                var entity = World.Monsters.EntityAt(i);
+                var health = entity.Health;
+                var body = monster.Body;
 
                 uint targetId = 0;
                 var minDistance = float.MaxValue; 
@@ -59,6 +62,17 @@ namespace ECS.Systems
                 else
                 {
                     monster.Attack = false; 
+                }
+                
+                if (body.LastHealth == 0)
+                {
+                    body.LastHealth = health.CurrentHealth; 
+                }
+                
+                if (body.LastHealth != health.CurrentHealth)
+                {
+                    body.SetDamageImpact();
+                    body.LastHealth = health.CurrentHealth; 
                 }
             }
         }

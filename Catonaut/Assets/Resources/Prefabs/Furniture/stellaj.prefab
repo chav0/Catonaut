@@ -15,8 +15,8 @@ GameObject:
   m_Name: Plane.324_Plane.390_Material.285
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1836421561340435154
 Transform:
@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6919673638464908000, guid: 7e82ad07de5a047f1b25beb7e7cef7b1, type: 3}
+  - {fileID: 2100000, guid: d738ed6b2c6e142988cfd5d1f286531f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,8 +95,8 @@ GameObject:
   m_Name: Plane.324_Plane.390_Material.286
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &8630236907935112685
 Transform:
@@ -138,7 +138,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2993339581229334300, guid: 7e82ad07de5a047f1b25beb7e7cef7b1, type: 3}
+  - {fileID: 2100000, guid: ced7a69a2003c4f7fafe07bfdf7bb960, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -174,7 +174,7 @@ GameObject:
   m_Name: stellaj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7011599350347699496
