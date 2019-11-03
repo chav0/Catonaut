@@ -41,7 +41,7 @@ namespace Client.Objects
             _deathColoring.AppendCallback(() =>
                 {
                     MeshRenderer.material.SetColor(ColorCached, Color.red);
-                    Flashlight.intensity = 3;
+                    Flashlight.intensity = 10;
                     Flashlight.color = Color.red;
                 })
                 .InsertCallback(.3f, () =>
