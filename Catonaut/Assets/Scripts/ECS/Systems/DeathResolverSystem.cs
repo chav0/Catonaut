@@ -18,7 +18,7 @@ namespace ECS.Systems
 
                 if (health.CurrentHealth == 0 && player != null)
                 {
-                    Debug.Log("Player Death");
+                    //Debug.Log("Player Death");
                     var transform = entity.Transform;
                     var spawnPoint = entity == World.ClientEntity ? World.SpawnPoints[0] : World.SpawnPoints[1];
 
@@ -40,14 +40,14 @@ namespace ECS.Systems
 
                 if (health.CurrentHealth == 0 && monster != null)
                 {
-                    Debug.Log("Monster Death");
+                    //Debug.Log("Monster Death");
                     Object.Destroy(monster.Body.gameObject);
                     World.DestroyEntity(entity);
                 }
 
                 if (health.CurrentHealth == 0 && damageZone != null)
                 {
-                    Debug.Log("DamageZone Destroed");
+                    //Debug.Log("DamageZone Destroed");
                     Object.Destroy(damageZone.Body.gameObject);
                     World.DestroyEntity(entity);
                 }

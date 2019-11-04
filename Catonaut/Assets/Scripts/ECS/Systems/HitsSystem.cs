@@ -49,7 +49,7 @@ namespace ECS.Systems
                         if (health.CurrentHealth < 0)
                             health.CurrentHealth = 0;
 
-                        Debug.Log("Add damage " + _gameSettings.ProjectileDamage);
+                        //Debug.Log("Add damage " + _gameSettings.ProjectileDamage);
                         projectile.IsDead = true;
                     }
                 }

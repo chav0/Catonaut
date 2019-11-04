@@ -23,7 +23,8 @@ namespace Client.Objects.UIWidgets
             Pressed = true; 
             StartPosition = eventData.position;
             CurrentPosition = eventData.position;
-            ShotSound.enabled = false;
+            if(ShotSound != null)
+                ShotSound.enabled = false;
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -38,7 +39,8 @@ namespace Client.Objects.UIWidgets
             UpPressed.Set();
             Pressed = false;
             Dragged = false;
-            ShotSound.enabled = true;
+            if(ShotSound != null)
+                ShotSound.enabled = true;
             Stick.anchoredPosition = Vector2.zero;
         }        
         
