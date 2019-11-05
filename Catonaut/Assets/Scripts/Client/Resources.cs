@@ -9,5 +9,6 @@ namespace Client
         public PlayerObject PlayerObject;
         public MapObject MapObject;
         public FxObject Fx; 
+        public FxObject FxMonster; 
     }
 }

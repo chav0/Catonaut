@@ -12,15 +12,11 @@ namespace Client.Objects
         [SerializeField] private Color _blue;
         [SerializeField] private Renderer _meshRenderer;
 
-        public AudioSource TakeSound;
-
         private KeyColor _keyColor;
         private static readonly int ColorCached = Shader.PropertyToID("_BaseColor");
 
         public KeyColor KeyColor
         {
-            
-            
             get => _keyColor;
             set
             {
@@ -30,16 +26,12 @@ namespace Client.Objects
                 {
                     case KeyColor.Red:
                         _meshRenderer.material.SetColor(ColorCached, _red);
-                        
-                            
                         break;
                     case KeyColor.Green:
                         _meshRenderer.material.SetColor(ColorCached, _green);
-                        
                         break;
                     case KeyColor.Blue:
                         _meshRenderer.material.SetColor(ColorCached, _blue);
-                        
                         break;
                 }
             }

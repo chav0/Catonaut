@@ -15,7 +15,7 @@ namespace Client.Updaters
 
                 if (body != null && input != null)
                 {
-                    body.SetAnimations(input.Speed);
+                    
                 }
             }
 

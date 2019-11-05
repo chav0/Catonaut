@@ -39,6 +39,7 @@ namespace ECS.Systems
                         continue;
 
                     MergeInventories(inventory, capsuleInventory);
+                    SetKeysCompleted(capsule, inventory); 
                     CheckForVictory(capsule, capsuleInventory, entityOverlap);
                 }
             }
@@ -50,6 +51,15 @@ namespace ECS.Systems
             input.Keys.Clear();
         }
 
+        private void SetKeysCompleted(Capsule capsule, Inventory capsuleInventory)
+        {
+            foreach (var keyObject in capsule.Body.KeyObjects)
+            {
+                var keyCompleted = capsuleInventory.Keys.Any(entity => entity.Key?.KeyColor == keyObject.KeyColor);
+                keyObject.IsCompleted = keyCompleted; 
+            }
+        }
+        
         private void CheckForVictory(Capsule capsule, Inventory capsuleInventory, Entity player)
         {
             foreach (var requiredKey in capsule.RequiredKeys)

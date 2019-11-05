@@ -11,12 +11,14 @@ namespace Client.Updaters
     public class FxUpdater : IUpdateImplementer<FxObject>
     {
         private readonly ComponentPool<FxObject> _pool;
+        private readonly ComponentPool<FxObject> _poolMonsters;
         private readonly CollectionUpdater<FxObject> _collectionUpdater;
         private World _world; 
 
         public FxUpdater(Resources resources)
         {
             _pool = new ComponentPool<FxObject>(resources.Fx, 10, true);
+            _poolMonsters = new ComponentPool<FxObject>(resources.FxMonster, 10, true);
             _collectionUpdater = new CollectionUpdater<FxObject>();
         }
         
@@ -50,7 +52,18 @@ namespace Client.Updaters
 
         public CreationResult<FxObject> Factory(uint entityId)
         {
-            var fx = _pool.Get(); 
+            FxObject fx = null; 
+            var entity = _world[entityId];
+            if (entity.Projectile.Owner.Player != null)
+            {
+                fx = _pool.Get();
+                fx.PlayerOwner = true; 
+            }
+            else
+            {
+                fx = _poolMonsters.Get();
+                fx.PlayerOwner = false; 
+            }
             
             var res = new CreationResult<FxObject>
             {
@@ -69,7 +82,10 @@ namespace Client.Updaters
 
         public void Dispose(uint entityId, FxObject viewElement)
         {
-            _pool.Return(viewElement);
+            if (viewElement.PlayerOwner)
+                _pool.Return(viewElement);
+            else
+                _poolMonsters.Return(viewElement);
         }
 
         public bool HasEntityWithId(uint entityId)

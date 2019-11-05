@@ -32,7 +32,6 @@ namespace ECS.Systems
             
                 if (input.Speed >= 0.1f || input.Aimed)
                 {
-
                     transform.Position += deltaMove;
                     if (body.TryDepenetrate(transform.Position, out var delta))
                     {
@@ -46,6 +45,7 @@ namespace ECS.Systems
                 }
 
                 body.transform.SetPositionAndRotation(transform.Position, transform.Rotation); 
+                body.SetAnimations(input.Speed);
             }
         }
     }

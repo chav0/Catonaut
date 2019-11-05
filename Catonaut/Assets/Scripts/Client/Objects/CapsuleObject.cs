@@ -7,7 +7,8 @@ namespace Client.Objects
     public class CapsuleObject : EntityRefObject
     {
         public List<float> Probability;
-        public int RequiredKeysCount; 
+        public int RequiredKeysCount;
+        public List<CapsuleKeyObject> KeyObjects; 
         
         public List<KeyColor> RequiredKeys { get; } = new List<KeyColor>();
     }
