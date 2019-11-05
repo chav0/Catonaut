@@ -24,6 +24,7 @@ namespace ECS.Systems
                 
                 if (input != null && input.Aim && weapon.WeaponState == WeaponState.Idle)
                 {
+                    entity.Player.PlayerObject.SetAimAnimation(true);
                     weapon.ChargeTick = World.Tick + weapon.ChargeTime;
                     weapon.WeaponState = WeaponState.Charge;
                 }
@@ -51,6 +52,7 @@ namespace ECS.Systems
                     
                     weapon.WeaponState = WeaponState.Cooldown;
                     weapon.CooldownTick = World.Tick + weapon.CooldownTime; 
+                    entity.Player.PlayerObject.SetAttackAnimation(true);
                 }
             }
         }

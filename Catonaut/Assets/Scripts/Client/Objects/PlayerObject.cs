@@ -16,9 +16,9 @@ namespace Client.Objects
         public Light Flashlight;
         public SphereCollider Collider; 
         public GameObject Laser;  
-        private static readonly int RightBlend = Animator.StringToHash("RightBlend");
-        private static readonly int ForwardBlend = Animator.StringToHash("ForwardBlend");
         private static readonly int BlendSpeed = Animator.StringToHash("BlendSpeed");
+        private static readonly int Attack = Animator.StringToHash("Attack");
+        private static readonly int Aim = Animator.StringToHash("Aim");
         public Transform HealthBar;
         
         private static readonly int ColorCached = Shader.PropertyToID("_BaseColor");
@@ -36,6 +36,18 @@ namespace Client.Objects
             {
                 WalkSound.enabled = false;
             }
+        }
+
+        public void SetAttackAnimation(bool attack)
+        {
+            if(attack) 
+                Animator.SetTrigger(Attack);
+        }
+        
+        public void SetAimAnimation(bool aim)
+        {
+            if(aim) 
+                Animator.SetTrigger(Aim);
         }
 
         public void SetFlashLight(float intensity, float yOffset, float range)
