@@ -74,6 +74,19 @@ namespace ECS.Systems
                     body.SetDamageImpact();
                     body.LastHealth = health.CurrentHealth; 
                 }
+                
+                //
+                if (body.Shield != null && body.Shield.LastHealth == 0)
+                {
+                    body.Shield.LastHealth = monster.CurrentShieldHealth; 
+                }
+                
+                if (body.Shield != null && body.Shield.LastHealth != monster.CurrentShieldHealth)
+                {
+                    body.Shield.SetDamageImpact();
+                    body.Shield.LastHealth = monster.CurrentShieldHealth; 
+                }
+                
             }
         }
     }
