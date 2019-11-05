@@ -101,8 +101,8 @@ MonoBehaviour:
   MaxSpeed: 5
   AimSpeedModificator: 0.3
   RotationSpeed: 3
-  KeyRadius: 0.5
-  CapsuleRadius: 0.5
+  KeyRadius: 1
+  CapsuleRadius: 1
   MaxPlayerHealth: 4
   WeaponChargeTime: 0.1
   WeaponCooldownTime: 0.2
