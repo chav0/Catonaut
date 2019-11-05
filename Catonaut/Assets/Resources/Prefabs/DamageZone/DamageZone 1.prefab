@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 1
-  Health: 8
+  Health: 100
   Radius: 0.6
   MeshRenderer: {fileID: 5008009645716862710}
   StandartColor:
