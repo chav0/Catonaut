@@ -9,6 +9,6 @@ namespace Client.Objects.UIWidgets
         public StickWidget MovementStick;
         public StickWidget AttackStick;
         public ScoreWidget EnemyScore;
-        public ScoreWidget AllyScore; 
+        public ScoreWidget AllyScore;
     }
 }

@@ -17,3 +17,5 @@ MonoBehaviour:
   MapObject: {fileID: 5982522878612181704, guid: daa46d983396c58438b38d4d6d2fbec0,
     type: 3}
   Fx: {fileID: 3857817601329867993, guid: c94d4def047c17d4d915939e3a539a97, type: 3}
+  FxMonster: {fileID: 3857817601329867993, guid: c94d4def047c17d4d915939e3a539a97,
+    type: 3}

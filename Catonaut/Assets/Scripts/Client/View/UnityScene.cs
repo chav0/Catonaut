@@ -49,6 +49,8 @@ namespace Client.Scene
                 KeyColor.Blue,
             };
 
+            var keyIndex = 0; 
+            
             for (int i = 0; i < keysColor.Count; i++)
             {
                 var keyColor = keysColor[i];
@@ -59,6 +61,9 @@ namespace Client.Scene
                     keysColor.Count - i <= map.Capsule.RequiredKeysCount - map.Capsule.RequiredKeys.Count)
                 {
                     map.Capsule.RequiredKeys.Add(keyColor);
+                    map.Capsule.KeyObjects[keyIndex].KeyColor = keyColor;
+                    map.Capsule.KeyObjects[keyIndex].IsCompleted = false;
+                    keyIndex++; 
                     Debug.Log(keyColor);
                 }
 
