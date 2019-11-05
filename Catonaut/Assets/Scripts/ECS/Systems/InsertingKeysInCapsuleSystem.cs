@@ -39,7 +39,7 @@ namespace ECS.Systems
                         continue;
 
                     MergeInventories(inventory, capsuleInventory);
-                    SetKeysCompleted(capsule, inventory); 
+                    SetKeysCompleted(capsule, capsuleInventory); 
                     CheckForVictory(capsule, capsuleInventory, entityOverlap);
                 }
             }
