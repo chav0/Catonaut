@@ -30,7 +30,7 @@ namespace Client.Objects
         public void SetAnimations(float speed)
         {
             Animator.SetFloat(BlendSpeed, speed);
-            if(speed > 0f)
+            if(speed > 0.5f)
                 WalkSound.enabled = true;
             else
             {
