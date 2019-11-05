@@ -299,12 +299,12 @@ MonoBehaviour:
   Animator: {fileID: 4308936812054827942}
   WalkSound: {fileID: 25873482821522743}
   Points: []
-  Health: 6
+  Health: 4
   Shield: {fileID: 0}
   MeshRenderer: {fileID: 2971044432750535173}
   StandartColor:
     serializedVersion: 2
-    rgba: 2181169
+    rgba: 32142
   Flashlight: {fileID: 4792823439904319709}
 --- !u!135 &8423599643810925014
 SphereCollider:
