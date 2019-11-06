@@ -19,7 +19,7 @@ MonoBehaviour:
   CameraLerp: 100
   PlayerRotationLerp: 0.1
   BotRotationLerp: 0.8
-  BotRandomRotation: 10
+  BotRandomRotation: 15
   CameraRotationSpeed: 500
   maxYOffset: 3
   maxIntensity: 32
