@@ -18,7 +18,7 @@ MonoBehaviour:
   CameraVerticalRotationSpeed: 0.1
   CameraLerp: 100
   PlayerRotationLerp: 0.1
-  BotRotationLerp: 0.8
+  BotRotationLerp: 0.9
   BotRandomRotation: 15
   CameraRotationSpeed: 500
   maxYOffset: 3
