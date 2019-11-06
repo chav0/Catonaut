@@ -22,7 +22,7 @@ MonoBehaviour:
   BotRandomRotation: 10
   CameraRotationSpeed: 500
   maxYOffset: 3
-  maxIntensity: 29
+  maxIntensity: 32
   maxRange: 10
   FlashlightRange:
     serializedVersion: 2
@@ -117,4 +117,4 @@ MonoBehaviour:
   MonsterDamage: 1
   MonsterProjectileLifeTimeSeconds: 3
   MonsterProjectileRange: 7
-  DamageTicks: 20
+  DamageTicks: 10

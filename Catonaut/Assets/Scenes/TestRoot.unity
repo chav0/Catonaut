@@ -5083,7 +5083,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2936fc592a6962f4399a3ec5b6a1a8df, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5956,7 +5956,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: db74523de07a924439a2973daff6548f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.03
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6160,11 +6160,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 584664889}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: d1da948b7df1349b0b6e680d90796fc6,
-        type: 3}
-      propertyPath: m_Name
-      value: raketa
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d1da948b7df1349b0b6e680d90796fc6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6235,6 +6230,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d1da948b7df1349b0b6e680d90796fc6,
+        type: 3}
+      propertyPath: m_Name
+      value: raketa
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336684732852460799, guid: d1da948b7df1349b0b6e680d90796fc6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e7638a46ab1f3e4d8befcd37fbcb6c6, type: 2}
+    - target: {fileID: 5484451938657379349, guid: d1da948b7df1349b0b6e680d90796fc6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 669fb1a2df870c54baf143450c32f163, type: 2}
     - target: {fileID: -2067819613557713389, guid: d1da948b7df1349b0b6e680d90796fc6,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -6245,26 +6255,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 669fb1a2df870c54baf143450c32f163, type: 2}
-    - target: {fileID: 2100975568333216661, guid: d1da948b7df1349b0b6e680d90796fc6,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0a73c6ad01373e64285ea41bb12a9d6c, type: 2}
-    - target: {fileID: 3336684732852460799, guid: d1da948b7df1349b0b6e680d90796fc6,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 7e7638a46ab1f3e4d8befcd37fbcb6c6, type: 2}
     - target: {fileID: 5247362202612066501, guid: d1da948b7df1349b0b6e680d90796fc6,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7e7638a46ab1f3e4d8befcd37fbcb6c6, type: 2}
-    - target: {fileID: 5484451938657379349, guid: d1da948b7df1349b0b6e680d90796fc6,
+    - target: {fileID: 2100975568333216661, guid: d1da948b7df1349b0b6e680d90796fc6,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 669fb1a2df870c54baf143450c32f163, type: 2}
+      objectReference: {fileID: 2100000, guid: 0a73c6ad01373e64285ea41bb12a9d6c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1da948b7df1349b0b6e680d90796fc6, type: 3}
 --- !u!1 &2057058382
@@ -6439,6 +6439,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581314439790879438, guid: 7632e873340fe8646a1ddf4cb2f38c0b,
+        type: 3}
+      propertyPath: MinRadius
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581314439790879438, guid: 7632e873340fe8646a1ddf4cb2f38c0b,
+        type: 3}
+      propertyPath: MaxRadius
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7515452620267997828, guid: 7632e873340fe8646a1ddf4cb2f38c0b,
         type: 3}

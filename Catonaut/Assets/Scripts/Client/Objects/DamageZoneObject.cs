@@ -21,7 +21,7 @@ namespace Client.Objects
             _deathColoring?.Kill();
             _deathColoring = DOTween.Sequence();
             _deathColoring.AppendCallback(() => MeshRenderer.material.SetColor(ColorCached, Color.yellow))
-                .InsertCallback(.3f, () =>
+                .InsertCallback(.15f, () =>
                 {
                     MeshRenderer.material.SetColor(ColorCached, StandartColor);
                 })
